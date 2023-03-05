@@ -1,0 +1,67 @@
+﻿<Window x:Class="NBA.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NBA"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1100">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80"/>
+            <RowDefinition/>
+            <RowDefinition Height="20" />
+        </Grid.RowDefinitions>
+        <Grid x:Name="HeaderGrid"
+              Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/images/logo.jpg"
+                   Margin="3,2,3,2"/>
+                <TextBlock Text="NBA Management System"
+                       Foreground="#656565"
+                       FontSize="16"
+                       FontFamily="Verdana"
+                       VerticalAlignment="Center"/>
+            </StackPanel>
+            <StackPanel Grid.Row="0"
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+                <TextBlock Text="Title"
+                           x:Name="Title"
+                       Foreground="#656565"
+                       FontSize="20"
+                       FontFamily="Verdana"/>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Right"
+                    VerticalAlignment="Center"
+                    Grid.Row="0"
+                    Grid.Column="2">
+                <Button x:Name="BBack"
+                    Content="Back"
+                    Click="BBack_Click"
+                    Margin="0,0,20,0"/>
+            </StackPanel>
+            <Rectangle Fill="#6995c2"
+                   Height="1"
+                   VerticalAlignment="Bottom"
+                   Grid.ColumnSpan="3"/>
+        </Grid>
+        <Frame x:Name="MainFrame"
+               Grid.Row="1"
+               NavigationUIVisibility="Hidden"/>
+        <StackPanel Background="#6995c2"
+                    Grid.Row="2">
+            <TextBlock Text="The current season in 2016-2017, and the NBA already has a history of 71 years."
+                   HorizontalAlignment="Center"
+                   FontFamily="Segoe UI Semibold"
+                   Foreground="White"/>   
+        </StackPanel>
+        
+    </Grid>
+</Window>

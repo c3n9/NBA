@@ -1,0 +1,523 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище NBAModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ActionType">
+    <Key>
+      <PropertyRef Name="ActionTypeId" />
+    </Key>
+    <Property Name="ActionTypeId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="Jobnumber" />
+    </Key>
+    <Property Name="Jobnumber" Type="varchar" MaxLength="6" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Passwords" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Gender" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="RoleId" Type="char" MaxLength="1" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Conference">
+    <Key>
+      <PropertyRef Name="ConferenceId" />
+    </Key>
+    <Property Name="ConferenceId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryCode" />
+    </Key>
+    <Property Name="CountryCode" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="CountryName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Division">
+    <Key>
+      <PropertyRef Name="DivisionId" />
+    </Key>
+    <Property Name="DivisionId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ConferenceId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Matchup">
+    <Key>
+      <PropertyRef Name="MatchupId" />
+    </Key>
+    <Property Name="MatchupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SeasonId" Type="int" Nullable="false" />
+    <Property Name="MatchupTypeId" Type="int" Nullable="false" />
+    <Property Name="Team_Away" Type="int" Nullable="false" />
+    <Property Name="Team_Home" Type="int" Nullable="false" />
+    <Property Name="Starttime" Type="datetime" Nullable="false" />
+    <Property Name="Team_Away_Score" Type="int" Nullable="false" />
+    <Property Name="Team_Home_Score" Type="int" Nullable="false" />
+    <Property Name="Location" Type="varchar" MaxLength="200" />
+    <Property Name="Status" Type="int" Nullable="false" />
+    <Property Name="CurrentQuarter" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MatchupDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MatchupId" Type="int" Nullable="false" />
+    <Property Name="Quarter" Type="int" Nullable="false" />
+    <Property Name="Team_Away_Score" Type="int" Nullable="false" />
+    <Property Name="Team_Home_Score" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MatchupLog">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MatchupId" Type="int" Nullable="false" />
+    <Property Name="Quarter" Type="int" Nullable="false" />
+    <Property Name="OccurTime" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="TeamId" Type="int" Nullable="false" />
+    <Property Name="PlayerId" Type="int" Nullable="false" />
+    <Property Name="ActionTypeId" Type="int" Nullable="false" />
+    <Property Name="Remark" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="MatchupType">
+    <Key>
+      <PropertyRef Name="MatchupTypeId" />
+    </Key>
+    <Property Name="MatchupTypeId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pictures">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Img" Type="image" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="50" />
+    <Property Name="NumberOfLike" Type="int" Nullable="false" />
+    <Property Name="CreateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Player">
+    <Key>
+      <PropertyRef Name="PlayerId" />
+    </Key>
+    <Property Name="PlayerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="PositionId" Type="int" Nullable="false" />
+    <Property Name="JoinYear" Type="date" Nullable="false" />
+    <Property Name="Height" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Weight" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="DateOfBirth" Type="date" Nullable="false" />
+    <Property Name="College" Type="varchar" MaxLength="50" />
+    <Property Name="CountryCode" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="Img" Type="image" />
+    <Property Name="IsRetirment" Type="bit" Nullable="false" />
+    <Property Name="RetirmentTime" Type="date" />
+  </EntityType>
+  <EntityType Name="PlayerInTeam">
+    <Key>
+      <PropertyRef Name="PlayerInTeamId" />
+    </Key>
+    <Property Name="PlayerInTeamId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PlayerId" Type="int" Nullable="false" />
+    <Property Name="TeamId" Type="int" Nullable="false" />
+    <Property Name="SeasonId" Type="int" Nullable="false" />
+    <Property Name="ShirtNumber" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="Salary" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="StarterIndex" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PlayerStatistics">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MatchupId" Type="int" Nullable="false" />
+    <Property Name="TeamId" Type="int" Nullable="false" />
+    <Property Name="PlayerId" Type="int" Nullable="false" />
+    <Property Name="IsStarting" Type="int" Nullable="false" />
+    <Property Name="Min" Type="decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="Point" Type="int" Nullable="false" />
+    <Property Name="Assist" Type="int" Nullable="false" />
+    <Property Name="FieldGoalMade" Type="int" Nullable="false" />
+    <Property Name="FieldGoalMissed" Type="int" Nullable="false" />
+    <Property Name="3-PointFieldGoalMade" Type="int" Nullable="false" />
+    <Property Name="3-PointFieldGoalMissed" Type="int" Nullable="false" />
+    <Property Name="FreeThrowMade" Type="int" Nullable="false" />
+    <Property Name="FreeThrowMissed" Type="int" Nullable="false" />
+    <Property Name="Rebound" Type="int" Nullable="false" />
+    <Property Name="OFFR" Type="int" Nullable="false" />
+    <Property Name="DFFR" Type="int" Nullable="false" />
+    <Property Name="Steal" Type="int" Nullable="false" />
+    <Property Name="Block" Type="int" Nullable="false" />
+    <Property Name="Turnover" Type="int" Nullable="false" />
+    <Property Name="Foul" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Position">
+    <Key>
+      <PropertyRef Name="PositionId" />
+    </Key>
+    <Property Name="PositionId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Abbr" Type="char" MaxLength="3" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PostSeason">
+    <Key>
+      <PropertyRef Name="TeamId" />
+      <PropertyRef Name="SeasonId" />
+    </Key>
+    <Property Name="TeamId" Type="int" Nullable="false" />
+    <Property Name="SeasonId" Type="int" Nullable="false" />
+    <Property Name="Rank" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Season">
+    <Key>
+      <PropertyRef Name="SeasonId" />
+    </Key>
+    <Property Name="SeasonId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Team">
+    <Key>
+      <PropertyRef Name="TeamId" />
+    </Key>
+    <Property Name="TeamId" Type="int" Nullable="false" />
+    <Property Name="TeamName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DivisionId" Type="int" Nullable="false" />
+    <Property Name="Coach" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Abbr" Type="char" MaxLength="3" Nullable="false" />
+    <Property Name="Stadium" Type="varchar" MaxLength="100" />
+    <Property Name="Logo" Type="image" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Admin_Role">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="Admin" Type="Self.Admin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="Admin">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Division_Conference">
+    <End Role="Conference" Type="Self.Conference" Multiplicity="1" />
+    <End Role="Division" Type="Self.Division" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Conference">
+        <PropertyRef Name="ConferenceId" />
+      </Principal>
+      <Dependent Role="Division">
+        <PropertyRef Name="ConferenceId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Matchup_Season">
+    <End Role="Season" Type="Self.Season" Multiplicity="1" />
+    <End Role="Matchup" Type="Self.Matchup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Season">
+        <PropertyRef Name="SeasonId" />
+      </Principal>
+      <Dependent Role="Matchup">
+        <PropertyRef Name="SeasonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MatchupLog_ActionType">
+    <End Role="ActionType" Type="Self.ActionType" Multiplicity="1" />
+    <End Role="MatchupLog" Type="Self.MatchupLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ActionType">
+        <PropertyRef Name="ActionTypeId" />
+      </Principal>
+      <Dependent Role="MatchupLog">
+        <PropertyRef Name="ActionTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MatchupLog_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="MatchupLog" Type="Self.MatchupLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="PlayerId" />
+      </Principal>
+      <Dependent Role="MatchupLog">
+        <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MatchupLog_Team">
+    <End Role="Team" Type="Self.Team" Multiplicity="1" />
+    <End Role="MatchupLog" Type="Self.MatchupLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="TeamId" />
+      </Principal>
+      <Dependent Role="MatchupLog">
+        <PropertyRef Name="TeamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MatchupStatistics_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="PlayerStatistics" Type="Self.PlayerStatistics" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="PlayerId" />
+      </Principal>
+      <Dependent Role="PlayerStatistics">
+        <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MatchupStatistics_Team">
+    <End Role="Team" Type="Self.Team" Multiplicity="1" />
+    <End Role="PlayerStatistics" Type="Self.PlayerStatistics" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="TeamId" />
+      </Principal>
+      <Dependent Role="PlayerStatistics">
+        <PropertyRef Name="TeamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Player_Country">
+    <End Role="Country" Type="Self.Country" Multiplicity="1" />
+    <End Role="Player" Type="Self.Player" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryCode" />
+      </Principal>
+      <Dependent Role="Player">
+        <PropertyRef Name="CountryCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Player_Position">
+    <End Role="Position" Type="Self.Position" Multiplicity="1" />
+    <End Role="Player" Type="Self.Player" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Position">
+        <PropertyRef Name="PositionId" />
+      </Principal>
+      <Dependent Role="Player">
+        <PropertyRef Name="PositionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlayerInTeam_Player">
+    <End Role="Player" Type="Self.Player" Multiplicity="1" />
+    <End Role="PlayerInTeam" Type="Self.PlayerInTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Player">
+        <PropertyRef Name="PlayerId" />
+      </Principal>
+      <Dependent Role="PlayerInTeam">
+        <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlayerInTeam_Season">
+    <End Role="Season" Type="Self.Season" Multiplicity="1" />
+    <End Role="PlayerInTeam" Type="Self.PlayerInTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Season">
+        <PropertyRef Name="SeasonId" />
+      </Principal>
+      <Dependent Role="PlayerInTeam">
+        <PropertyRef Name="SeasonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlayerInTeam_Team">
+    <End Role="Team" Type="Self.Team" Multiplicity="1" />
+    <End Role="PlayerInTeam" Type="Self.PlayerInTeam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="TeamId" />
+      </Principal>
+      <Dependent Role="PlayerInTeam">
+        <PropertyRef Name="TeamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schedule_SeasonType">
+    <End Role="MatchupType" Type="Self.MatchupType" Multiplicity="1" />
+    <End Role="Matchup" Type="Self.Matchup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MatchupType">
+        <PropertyRef Name="MatchupTypeId" />
+      </Principal>
+      <Dependent Role="Matchup">
+        <PropertyRef Name="MatchupTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schedule_Team">
+    <End Role="Team" Type="Self.Team" Multiplicity="1" />
+    <End Role="Matchup" Type="Self.Matchup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="TeamId" />
+      </Principal>
+      <Dependent Role="Matchup">
+        <PropertyRef Name="Team_Away" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Schedule_Team1">
+    <End Role="Team" Type="Self.Team" Multiplicity="1" />
+    <End Role="Matchup" Type="Self.Matchup" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="TeamId" />
+      </Principal>
+      <Dependent Role="Matchup">
+        <PropertyRef Name="Team_Home" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Team_Division">
+    <End Role="Division" Type="Self.Division" Multiplicity="1" />
+    <End Role="Team" Type="Self.Team" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Division">
+        <PropertyRef Name="DivisionId" />
+      </Principal>
+      <Dependent Role="Team">
+        <PropertyRef Name="DivisionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeamInPostseason_Season">
+    <End Role="Season" Type="Self.Season" Multiplicity="1" />
+    <End Role="PostSeason" Type="Self.PostSeason" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Season">
+        <PropertyRef Name="SeasonId" />
+      </Principal>
+      <Dependent Role="PostSeason">
+        <PropertyRef Name="SeasonId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TeamInPostseason_Team">
+    <End Role="Team" Type="Self.Team" Multiplicity="1" />
+    <End Role="PostSeason" Type="Self.PostSeason" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Team">
+        <PropertyRef Name="TeamId" />
+      </Principal>
+      <Dependent Role="PostSeason">
+        <PropertyRef Name="TeamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище NBAModelContainer">
+    <EntitySet Name="ActionType" EntityType="Self.ActionType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Conference" EntityType="Self.Conference" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Country" EntityType="Self.Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Division" EntityType="Self.Division" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Matchup" EntityType="Self.Matchup" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MatchupDetail" EntityType="Self.MatchupDetail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MatchupLog" EntityType="Self.MatchupLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MatchupType" EntityType="Self.MatchupType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pictures" EntityType="Self.Pictures" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Player" EntityType="Self.Player" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlayerInTeam" EntityType="Self.PlayerInTeam" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PlayerStatistics" EntityType="Self.PlayerStatistics" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PostSeason" EntityType="Self.PostSeason" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Season" EntityType="Self.Season" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Admin_Role" Association="Self.FK_Admin_Role">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="Admin" EntitySet="Admin" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Division_Conference" Association="Self.FK_Division_Conference">
+      <End Role="Conference" EntitySet="Conference" />
+      <End Role="Division" EntitySet="Division" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Matchup_Season" Association="Self.FK_Matchup_Season">
+      <End Role="Season" EntitySet="Season" />
+      <End Role="Matchup" EntitySet="Matchup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MatchupLog_ActionType" Association="Self.FK_MatchupLog_ActionType">
+      <End Role="ActionType" EntitySet="ActionType" />
+      <End Role="MatchupLog" EntitySet="MatchupLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MatchupLog_Player" Association="Self.FK_MatchupLog_Player">
+      <End Role="Player" EntitySet="Player" />
+      <End Role="MatchupLog" EntitySet="MatchupLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MatchupLog_Team" Association="Self.FK_MatchupLog_Team">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="MatchupLog" EntitySet="MatchupLog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MatchupStatistics_Player" Association="Self.FK_MatchupStatistics_Player">
+      <End Role="Player" EntitySet="Player" />
+      <End Role="PlayerStatistics" EntitySet="PlayerStatistics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MatchupStatistics_Team" Association="Self.FK_MatchupStatistics_Team">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="PlayerStatistics" EntitySet="PlayerStatistics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Player_Country" Association="Self.FK_Player_Country">
+      <End Role="Country" EntitySet="Country" />
+      <End Role="Player" EntitySet="Player" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Player_Position" Association="Self.FK_Player_Position">
+      <End Role="Position" EntitySet="Position" />
+      <End Role="Player" EntitySet="Player" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlayerInTeam_Player" Association="Self.FK_PlayerInTeam_Player">
+      <End Role="Player" EntitySet="Player" />
+      <End Role="PlayerInTeam" EntitySet="PlayerInTeam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlayerInTeam_Season" Association="Self.FK_PlayerInTeam_Season">
+      <End Role="Season" EntitySet="Season" />
+      <End Role="PlayerInTeam" EntitySet="PlayerInTeam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlayerInTeam_Team" Association="Self.FK_PlayerInTeam_Team">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="PlayerInTeam" EntitySet="PlayerInTeam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schedule_SeasonType" Association="Self.FK_Schedule_SeasonType">
+      <End Role="MatchupType" EntitySet="MatchupType" />
+      <End Role="Matchup" EntitySet="Matchup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schedule_Team" Association="Self.FK_Schedule_Team">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="Matchup" EntitySet="Matchup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Schedule_Team1" Association="Self.FK_Schedule_Team1">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="Matchup" EntitySet="Matchup" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Team_Division" Association="Self.FK_Team_Division">
+      <End Role="Division" EntitySet="Division" />
+      <End Role="Team" EntitySet="Team" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeamInPostseason_Season" Association="Self.FK_TeamInPostseason_Season">
+      <End Role="Season" EntitySet="Season" />
+      <End Role="PostSeason" EntitySet="PostSeason" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TeamInPostseason_Team" Association="Self.FK_TeamInPostseason_Team">
+      <End Role="Team" EntitySet="Team" />
+      <End Role="PostSeason" EntitySet="PostSeason" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

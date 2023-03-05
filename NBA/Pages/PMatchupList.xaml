@@ -1,0 +1,70 @@
+﻿<Page x:Class="NBA.Pages.PMatchupList"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NBA.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PMatchupList"
+      Loaded="Page_Loaded">
+
+    <Grid>
+        <ListView x:Name="LVMatchups">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock Text="{Binding Starttime, StringFormat={}{0:dd/MM hh:mm}}"
+                                       FontFamily="Verdana"
+                                       VerticalAlignment="Center"
+                                       Foreground="#595959"
+                                       Margin="20,0,0,0"/>
+                            <Image Source="{Binding Team.Logo}" Height="70" 
+                                   VerticalAlignment="Top"
+                                   Margin="20,0,0,0"/>
+                            <TextBlock Text="{Binding Team.TeamName}"
+                                       VerticalAlignment="Center"
+                                       FontFamily="Verdana"
+                                       Foreground="#0070c0"
+                                       Margin="10,0,0,0"/>
+                            <TextBlock Text="{Binding Team_Away_Score}"
+                                       FontFamily="Verdana"
+                                       VerticalAlignment="Center"
+                                       Foreground="#595959"
+                                       Margin="20,0,0,0"/>
+                            <TextBlock Text="—" 
+                                       FontFamily="Verdana"
+                                       VerticalAlignment="Center"
+                                       Foreground="#595959"
+                                       Margin="20,0,0,0"/>
+                            <TextBlock Text="{Binding Team_Home_Score}"
+                                       FontFamily="Verdana"
+                                       VerticalAlignment="Center"
+                                       Foreground="#595959"
+                                       Margin="20,0,0,0"/>
+                            <Image Source="{Binding Team1.Logo}" Height="70"
+                                   VerticalAlignment="Top"
+                                   Margin="20,0,0,0"/>
+                            <TextBlock Text="{Binding Team1.TeamName}"
+                                       FontFamily="Verdana"
+                                       VerticalAlignment="Center"
+                                       Foreground="#0070c0"
+                                       Margin="20,0,0,0"/>
+                            <TextBlock Text="{Binding Location}"
+                                       FontFamily="Verdana"
+                                       VerticalAlignment="Center"
+                                       Foreground="#595959"
+                                       Margin="20,0,0,0"/>
+                            <Button x:Name="BView"
+                                    Content="View"
+                                    Click="BView_Click"
+                                    VerticalAlignment="Center"
+                                    Margin="20,0,0,0"/>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </Grid>
+</Page>

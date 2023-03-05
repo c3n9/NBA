@@ -1,0 +1,17 @@
+C:\Users\Asus\OneDrive\Рабочий стол\NBA\NBA\obj\Release\NBA.csproj.AssemblyReference.cache
+C:\Users\Asus\OneDrive\Рабочий стол\NBA\NBA\obj\Release\NBA.csproj.SuggestedBindingRedirects.cache
+C:\Users\Asus\OneDrive\Рабочий стол\NBA\NBA\obj\Release\MainWindow.g.cs
+C:\Users\Asus\OneDrive\Рабочий стол\NBA\NBA\obj\Release\Pages\PAdminLogin.g.cs
+C:\Users\Asus\OneDrive\Рабочий стол\NBA\NBA\obj\Release\Pages\PEventAdministratorMenu.g.cs
+C:\Users\Asus\OneDrive\Рабочий стол\NBA\NBA\obj\Release\Pages\PMainScreen.g.cs
+C:\Users\Asus\OneDrive\Рабочий стол\NBA\NBA\obj\Release\Pages\PMatchupList.g.cs
+C:\Users\Asus\OneDrive\Рабочий стол\NBA\NBA\obj\Release\Pages\PPhotos.g.cs
+C:\Users\Asus\OneDrive\Рабочий стол\NBA\NBA\obj\Release\Pages\PPlayersMain.g.cs
+C:\Users\Asus\OneDrive\Рабочий стол\NBA\NBA\obj\Release\Pages\PTeamDetail.g.cs
+C:\Users\Asus\OneDrive\Рабочий стол\NBA\NBA\obj\Release\Pages\PTeamsMain.g.cs
+C:\Users\Asus\OneDrive\Рабочий стол\NBA\NBA\obj\Release\Pages\PTechnicalAdministratorMenu.g.cs
+C:\Users\Asus\OneDrive\Рабочий стол\NBA\NBA\obj\Release\Pages\PVisitorMenu.g.cs
+C:\Users\Asus\OneDrive\Рабочий стол\NBA\NBA\obj\Release\App.g.cs
+C:\Users\Asus\OneDrive\Рабочий стол\NBA\NBA\obj\Release\NBA_Content.g.cs
+C:\Users\Asus\OneDrive\Рабочий стол\NBA\NBA\obj\Release\NBA_MarkupCompile.cache
+C:\Users\Asus\OneDrive\Рабочий стол\NBA\NBA\obj\Release\NBA_MarkupCompile.lref
