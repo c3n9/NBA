@@ -63,8 +63,10 @@
                             <DataGridTextColumn Header="DateofBirth" Binding="{Binding Player.DateOfBirth}"/>
                             <DataGridTextColumn Header="College" Binding="{Binding Player.College}"/>
                             <DataGridTextColumn Header="Experience"
-                                                x:Name="TCExperience"/>
-                            <DataGridTextColumn Header="Salary" Binding="{Binding Salary}"/>
+                                                x:Name="TCExperience"
+                                                Binding="{Binding Player.Experience}"/>
+                            <DataGridTextColumn Header="Salary" 
+                                                Binding="{Binding Salary}"/>
                         </DataGrid.Columns>
                     </DataGrid>
                 </TabItem.Content>
@@ -87,11 +89,17 @@
                             <DataGridTextColumn Header="Matchup Type"
                                                 Binding="{Binding MatchupType.Name}"/>
                             <DataGridTextColumn Header="Opponent"
-                                                Binding="{Binding Team_Home.TeamName}"/>
+                                                Binding="{Binding Team1.TeamName}"/>
                             <DataGridTextColumn Header="Start time"
                                                 Binding="{Binding Starttime,StringFormat = {}{0:hh:mm tt}}"/>
-                            <DataGridTextColumn Header="Result"
-                                                Binding="{Binding Team_Away_Score}"/>
+                            <DataGridTextColumn Header="Result">
+                                <DataGridTextColumn.Binding>
+                                    <MultiBinding  StringFormat="{}{0} - {1}">
+                                        <Binding Path="Team_Away_Score"/>
+                                        <Binding Path="Team_Home_Score"/>
+                                    </MultiBinding>
+                                </DataGridTextColumn.Binding>
+                            </DataGridTextColumn>
                             <DataGridTextColumn Header="Location"
                                                 Binding="{Binding Location}"/>
                             <DataGridTextColumn Header="Status"

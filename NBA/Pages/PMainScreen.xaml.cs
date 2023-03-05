@@ -25,6 +25,7 @@ namespace NBA.Pages
         public PMainScreen()
         {
             InitializeComponent();
+            
         }
 
         private void BVisitor_Click(object sender, RoutedEventArgs e)
@@ -44,6 +45,7 @@ namespace NBA.Pages
         }
         private void Refresh()
         {
+            
             var images = App.DB.Pictures.ToList().Skip(currentIndex).Take(3).ToList();
             if(images.Count == 0) 
                 images = App.DB.Pictures.Take(3).ToList();

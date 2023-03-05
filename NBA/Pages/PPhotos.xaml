@@ -6,19 +6,99 @@
       xmlns:local="clr-namespace:NBA.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="PPhotos">
+      Title="PPhotos"
+      Loaded="Page_Loaded">
 
     <Grid>
-        <ListView x:Name="LVPhotos">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <WrapPanel Orientation="Horizontal">
-                        <Image Source="{Binding Img}"
-                               Width="350"
-                               x:Name="IPhoto"/>
-                    </WrapPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Image x:Name="Image1"
+                Width="270"
+                Height="130"
+                HorizontalAlignment="Center"/>
+        <Image x:Name="Image2"
+                Width="270"
+                Height="130"
+                HorizontalAlignment="Center"
+                Grid.Column="1"/>
+        <Image x:Name="Image3"
+                Width="270"
+                Height="130"
+                HorizontalAlignment="Center"
+               Grid.Column="2"/>
+        <Image x:Name="Image4"
+                Width="270"
+                Height="130"
+                HorizontalAlignment="Center"
+               Grid.Row="1"/>
+        <Image x:Name="Image5"
+                Width="270"
+                Height="130"
+                HorizontalAlignment="Center"
+               Grid.Row="1"
+               Grid.Column="1"/>
+        <Image x:Name="Image6"
+                Width="270"
+                Height="130"
+                HorizontalAlignment="Center"
+               Grid.Row="1"
+               Grid.Column="2"/>
+        <Image x:Name="Image7"
+                Width="270"
+                Height="130"
+                HorizontalAlignment="Center"
+               Grid.Row="2"/>
+        <Image x:Name="Image8"
+                Width="270"
+                Height="130"
+                HorizontalAlignment="Center"
+               Grid.Row="2"
+               Grid.Column="1"/>
+        <Image x:Name="Image9"
+                Width="270"
+                Height="130"
+                HorizontalAlignment="Center"
+               Grid.Row="2"
+               Grid.Column="2"/>
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    HorizontalAlignment="Right"
+                    Margin="0,0,10,10">
+            <Button x:Name="BPrevious"
+                    Content="&lt;"
+                    FontFamily="Segoe Ui"
+                    Background="White"
+                    BorderThickness="1"
+                    FontSize="14"
+                    Click="BPrevious_Click"
+                    Foreground="#4d4d4d"
+                    Width="25"
+                    Margin="0,0,10,0"/>
+            <TextBlock x:Name="TBList" Text="0"
+                       FontFamily="Segoe Ui"
+                       Background="White"
+                       FontSize="14"
+                       Foreground="#4d4d4d"
+                       Margin="0,0,10,0"/>
+            <Button x:Name="BNext"
+                    Content="&gt;"
+                    FontFamily="Segoe Ui"
+                    Background="White"
+                    BorderThickness="1"
+                    FontSize="14"
+                    Foreground="#4d4d4d"
+                    Click="BNext_Click"
+                    Width="25"/>
+        </StackPanel>
     </Grid>
 </Page>
