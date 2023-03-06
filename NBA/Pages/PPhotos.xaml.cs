@@ -65,6 +65,7 @@ namespace NBA.Pages
                 image.Source = MyTools.BytesToImage(picture.Img);
                 image.Width = 200;
                 image.Height = 500;
+                image.DataContext = picture;
                 image.MouseRightButtonDown += MouseRightButtonDown;
                 image.Margin = new Thickness(5);
                 WPPhotos.Children.Add(image);
@@ -74,16 +75,12 @@ namespace NBA.Pages
         {
             //var selectedPicture = WPPhotos.DataContext as Pictures;
             var selectedPicture = (sender as Image).DataContext as Pictures; 
-            if(selectedPicture == null)
-            {
-                MessageBox.Show("Select picture");
-                return;
-            }
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.Filter = ".png, .jpg, .jpeg | *.png, *.jpg, *.jpeg";
             if (saveFileDialog.ShowDialog().GetValueOrDefault())
             {
-                File.Create(saveFileDialog.FileName);
+                var file = File.Create(saveFileDialog.FileName);
+                file.Close();
                 File.WriteAllBytes(saveFileDialog.FileName, selectedPicture.Img);
             }
         }
