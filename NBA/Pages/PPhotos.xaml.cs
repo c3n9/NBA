@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Microsoft.Win32;
 using NBA.Models;
 using NBA.Services;
 namespace NBA.Pages
@@ -67,6 +68,7 @@ namespace NBA.Pages
                 image.Width = 200;
                 image.Height = 200;
                 image.Margin = new Thickness(5);
+                
                 WPPhotos.Children.Add(image);
             }
         }
@@ -74,6 +76,29 @@ namespace NBA.Pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             Refresh();
+        }
+
+        private void BLoadPhoto_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new OpenFileDialog() { Filter = ".png, .jpg, .jpeg | *.png; *.jpg; *.jpeg; ", Multiselect = true };
+            if (dialog.ShowDialog().GetValueOrDefault())
+            {
+                var picture = new Pictures();
+                picture.Img = File.ReadAllBytes(dialog.FileName);
+                picture.CreateTime = DateTime.Now;
+                picture.NumberOfLike = 0;
+                App.DB.Pictures.Add(picture);
+                App.DB.SaveChanges();
+                Refresh();
+
+                //foreach (var fileName in dialog.FileNames)
+                //{
+                //    picture.Img = File.ReadAllBytes(fileName);
+                //    picture.CreateTime = DateTime.Now;
+                //    picture.NumberOfLike = 0;
+                //    App.DB.Pictures.Add(picture);
+                //}
+            }
         }
     }
 }
