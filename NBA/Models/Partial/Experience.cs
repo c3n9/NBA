@@ -8,7 +8,7 @@ namespace NBA.Models
 {
     public partial class Player
     {
-        public Int32 Experience
+        public int Experience
         {
             get
             {

@@ -28,9 +28,10 @@ namespace NBA.Pages
             contextTeam = team;
             DataContext = contextTeam;
             TCTeam.SelectedIndex = selectIndex;
-            DGPlayerInTeam.ItemsSource = App.DB.PlayerInTeam.Where(t => t.TeamId == contextTeam.TeamId && t.SeasonId == 3).ToList();
+            DGPlayerInTeam.ItemsSource = contextTeam.PlayerInTeam.Where(t => t.TeamId == team.TeamId && t.SeasonId==3).ToList();
             DGMatchup.ItemsSource = App.DB.Matchup.Where(t => t.Team_Away == team.TeamId).ToList();
-            //LVPLayers.ItemsSource = App.DB.PlayerInTeam.Where().ToList();
+          
+            LVPLayers.ItemsSource = contextTeam.PlayerInTeam.Where(p => p.Player.PositionId == 1 && p.SeasonId == 3).ToList();
             App.MainWindowInstanse.HeaderGrid.Visibility = Visibility.Visible;
             App.MainWindowInstanse.Title.Text = "Team Detail";
         }
