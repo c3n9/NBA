@@ -55,8 +55,6 @@ namespace NBA.Pages
         {
             TBList.Text = Convert.ToString(currentPage + 1);
             GenerateImages(App.DB.Pictures.ToList().Skip(currentPage * takePicture).Take(takePicture).ToList());
-
-
         }
         private void GenerateImages(List<Pictures> pictures)
         {
@@ -66,13 +64,29 @@ namespace NBA.Pages
                 Image image = new Image();
                 image.Source = MyTools.BytesToImage(picture.Img);
                 image.Width = 200;
-                image.Height = 200;
+                image.Height = 500;
+                image.MouseRightButtonDown += MouseRightButtonDown;
                 image.Margin = new Thickness(5);
-                
                 WPPhotos.Children.Add(image);
             }
         }
-
+        private void MouseRightButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            //var selectedPicture = WPPhotos.DataContext as Pictures;
+            var selectedPicture = (sender as Image).DataContext as Pictures; 
+            if(selectedPicture == null)
+            {
+                MessageBox.Show("Select picture");
+                return;
+            }
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = ".png, .jpg, .jpeg | *.png, *.jpg, *.jpeg";
+            if (saveFileDialog.ShowDialog().GetValueOrDefault())
+            {
+                File.Create(saveFileDialog.FileName);
+                File.WriteAllBytes(saveFileDialog.FileName, selectedPicture.Img);
+            }
+        }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             Refresh();
@@ -80,25 +94,29 @@ namespace NBA.Pages
 
         private void BLoadPhoto_Click(object sender, RoutedEventArgs e)
         {
-            var dialog = new OpenFileDialog() { Filter = ".png, .jpg, .jpeg | *.png; *.jpg; *.jpeg; ", Multiselect = true };
-            if (dialog.ShowDialog().GetValueOrDefault())
+            var dialog = new OpenFileDialog() { Filter = ".png, .jpg, .jpeg | *.png; *.jpg; *.jpeg;", Multiselect = true };
+            if(dialog.ShowDialog().GetValueOrDefault()) 
             {
-                var picture = new Pictures();
-                picture.Img = File.ReadAllBytes(dialog.FileName);
-                picture.CreateTime = DateTime.Now;
-                picture.NumberOfLike = 0;
-                App.DB.Pictures.Add(picture);
-                App.DB.SaveChanges();
-                Refresh();
+                foreach (var fileName in dialog.FileNames)
+                {
+                    var picture = new Pictures();
+                    picture.Img = File.ReadAllBytes(fileName);
+                    picture.CreateTime= DateTime.Now;
+                    picture.NumberOfLike = 0;
+                    App.DB.Pictures.Add(picture);
+                    App.DB.SaveChanges();
+                    Refresh();
+                }
 
-                //foreach (var fileName in dialog.FileNames)
-                //{
-                //    picture.Img = File.ReadAllBytes(fileName);
-                //    picture.CreateTime = DateTime.Now;
-                //    picture.NumberOfLike = 0;
-                //    App.DB.Pictures.Add(picture);
-                //}
+                //var picture = new Pictures();
+                //picture.Img = File.ReadAllBytes(dialog.FileName);
+                //picture.CreateTime = DateTime.Now;
+                //picture.NumberOfLike = 0;
+                //App.DB.Pictures.Add(picture);
+                //App.DB.SaveChanges();
+                //Refresh();
             }
         }
+        
     }
 }
