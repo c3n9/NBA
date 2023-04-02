@@ -240,3 +240,46 @@ C:\Users\quart\OneDrive\Рабочий стол\NBAGit\NBA\obj\Debug\NBA.csproj.
 C:\Users\quart\OneDrive\Рабочий стол\NBAGit\NBA\obj\Debug\NBA.csproj.CopyComplete
 C:\Users\quart\OneDrive\Рабочий стол\NBAGit\NBA\obj\Debug\NBA.exe
 C:\Users\quart\OneDrive\Рабочий стол\NBAGit\NBA\obj\Debug\NBA.pdb
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\bin\Debug\NBA.exe.config
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\bin\Debug\NBA.exe
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\bin\Debug\NBA.pdb
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\bin\Debug\EntityFramework.dll
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\bin\Debug\EntityFramework.xml
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\NBA.csproj.AssemblyReference.cache
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\NBA.csproj.SuggestedBindingRedirects.cache
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\MainWindow.g.cs
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\Pages\PAdminLogin.g.cs
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\Pages\PEventAdministratorMenu.g.cs
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\Pages\PMainScreen.g.cs
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\Pages\PMatchupList.g.cs
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\Pages\PPhotos.g.cs
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\Pages\PPlayersMain.g.cs
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\Pages\PTeamDetail.g.cs
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\Pages\PTeamsMain.g.cs
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\Pages\PTechnicalAdministratorMenu.g.cs
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\Pages\PVisitorMenu.g.cs
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\App.g.cs
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\NBA_Content.g.cs
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\NBA_MarkupCompile.cache
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\NBA_MarkupCompile.lref
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\MainWindow.baml
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\Pages\PAdminLogin.baml
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\Pages\PEventAdministratorMenu.baml
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\Pages\PMainScreen.baml
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\Pages\PMatchupList.baml
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\Pages\PPhotos.baml
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\Pages\PPlayersMain.baml
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\Pages\PTeamDetail.baml
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\Pages\PTeamsMain.baml
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\Pages\PTechnicalAdministratorMenu.baml
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\Pages\PVisitorMenu.baml
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\NBA.g.resources
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\NBA.Properties.Resources.resources
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\NBA.csproj.GenerateResource.cache
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\NBA.csproj.CoreCompileInputs.cache
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\NBA.csproj.CopyComplete
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\NBA.exe
+C:\Users\quart\OneDrive\Рабочий стол\Новая папка\NBA\NBA\obj\Debug\NBA.pdb

@@ -42,11 +42,42 @@
         </StackPanel>
         <TabControl Grid.Row="1"
                     x:Name="TCTeam">
+            <TabControl.Resources>
+                <Style TargetType="TabItem">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="TabItem">
+                                <Border x:Name="Border"
+                                        Margin="3"
+                                        CornerRadius="10"
+                                        Width="120">
+                                    <ContentPresenter ContentSource="Header"
+                                                      Margin="10"/>
+                                </Border>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsSelected"
+                                             Value="True">
+                                        <Setter Property="Background"
+                                                Value="#006fbf"
+                                                TargetName="Border"/>
+                                    </Trigger>
+                                    <Trigger Property="IsSelected"
+                                             Value="False">
+                                        <Setter Property="Background"
+                                                Value="#999999"
+                                                TargetName="Border"/>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TabControl.Resources>
             <TabItem x:Name="TIRoster">
                 <TabItem.Header>
                     <TextBlock Text="Roster"
                                FontFamily="Verdana"
-                               Foreground="#595959"
+                               Foreground="white"
                                FontSize="20"
                                HorizontalAlignment="Center"/>
                 </TabItem.Header>
@@ -75,7 +106,7 @@
                 <TabItem.Header>
                     <TextBlock Text="Matchup"
                                FontFamily="Verdana"
-                               Foreground="#595959"
+                               Foreground="white"
                                FontSize="20"
                                HorizontalAlignment="Center"/>    
                 </TabItem.Header>
@@ -112,7 +143,7 @@
                 <TabItem.Header>
                     <TextBlock Text="Lineup"
                                FontFamily="Verdana"
-                               Foreground="#595959"
+                               Foreground="white"
                                FontSize="20"
                                HorizontalAlignment="Center"/>
                 </TabItem.Header>

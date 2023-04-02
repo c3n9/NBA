@@ -5,7 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NBA"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="1100">
+        Title="NBA Managment" 
+        Height="600" 
+        Width="1100"
+        Icon="/Images/ball-of-basketball.png">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="80"/>
@@ -43,9 +46,13 @@
                     Grid.Row="0"
                     Grid.Column="2">
                 <Button x:Name="BBack"
-                    Content="Back"
-                    Click="BBack_Click"
-                    Margin="0,0,20,0"/>
+                        Content="Back"
+                        Click="BBack_Click"
+                        Margin="0,0,20,0"
+                        Background="#006fbf"
+                        Foreground="white"
+                        Width="50"
+                        Height="25"/>
             </StackPanel>
             <Rectangle Fill="#6995c2"
                    Height="1"

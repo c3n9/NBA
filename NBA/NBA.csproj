@@ -262,6 +262,7 @@
   <ItemGroup>
     <Resource Include="Images\gym.jpg" />
     <Resource Include="Images\photo.jpg" />
+    <Resource Include="Images\ball-of-basketball.png" />
     <Content Include="Models\ModelNBA.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelNBA.edmx</DependentUpon>
