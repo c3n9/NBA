@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NBA.Models
+namespace NBA_2hour.Models
 {
     using System;
     using System.Collections.Generic;

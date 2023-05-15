@@ -1,0 +1,30 @@
+﻿<Window x:Class="NBA_2hour.AppWindows.MessageWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NBA_2hour.AppWindows"
+        mc:Ignorable="d"
+        Title="MessageWindow"
+        Height="200"
+        Width="500"
+        ResizeMode="NoResize">
+    <Grid>
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <TextBlock Text="Manage Executions - Future Add-on"
+                       FontSize="22"
+                       FontFamily="Verdana"
+                       Margin="0,0,0,20"
+                       Foreground="Black"
+                       TextAlignment="Center"/>
+            <TextBlock Text="The feature would be a future add-on to the current system."
+                       FontSize="16"
+                       FontFamily="Verdana"
+                       Foreground="Gray" 
+                       TextAlignment="Center"/>
+        </StackPanel>
+        
+        
+    </Grid>
+</Window>

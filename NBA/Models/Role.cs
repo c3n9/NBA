@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NBA.Models
+namespace NBA_2hour.Models
 {
     using System;
     using System.Collections.Generic;
@@ -20,7 +20,7 @@ namespace NBA.Models
             this.Admin = new HashSet<Admin>();
         }
     
-        public string RoleId { get; set; }
+        public int RoleId { get; set; }
         public string RoleName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

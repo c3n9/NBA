@@ -1,0 +1,46 @@
+﻿<Window x:Class="NBA_2hour.AppWindows.ChooseRoleWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NBA_2hour.AppWindows"
+        mc:Ignorable="d"
+        Title="ChooseRoleWindow" Height="200" Width="400"
+        ResizeMode="NoResize">
+    <Grid>
+        <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <TextBlock Text="FOR TESTING ONLY!"
+                       FontSize="20"
+                       FontFamily="Verdana"
+                       Foreground="Orange"
+                       FontStyle="Italic"
+                       TextAlignment="Center" />
+            <TextBlock Text="Which type of user would you like to log in to the system as?"
+                       FontSize="16"
+                       FontFamily="Verdana" 
+                       Foreground="Gray"
+                       TextWrapping="Wrap"
+                       TextAlignment="Center"
+                       Width="300"/>
+            <Button x:Name="BEvent"
+                    Content="Event Administrator"
+                    Click="BEvent_Click"
+                    FontSize="16"
+                    FontFamily="Verdana"
+                    Background="White"
+                    BorderBrush="Black" 
+                    Height="30"
+                    Margin="0,10,0,0"/>
+            <Button x:Name="BTechnical"
+                    Content="Technical Administrator"
+                    Click="BTechnical_Click"
+                    FontSize="16"
+                    FontFamily="Verdana"
+                    Background="White"
+                    BorderBrush="Black"
+                    Height="30"
+                    Margin="0,10,0,0" />
+        </StackPanel>
+    </Grid>
+</Window>

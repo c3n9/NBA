@@ -1,0 +1,363 @@
+﻿<Page x:Class="NBA_2hour.Pages.TeamsMain"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NBA_2hour.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="TeamsMain"
+      Loaded="Page_Loaded">
+
+    <Grid>
+        <TabControl>
+            <TabItem x:Name="TIEastern">
+                <TabItem.Header>
+                    <TextBlock Text="Eastern"
+                               Foreground="Gray"
+                               FontFamily="Verdana"
+                               FontSize="20"/>
+                </TabItem.Header>
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Atlantic"
+                                   HorizontalAlignment="Center"
+                                   Foreground="Gray"
+                                   FontFamily="Verdana"
+                                   FontSize="20" />
+                        <ListView x:Name="LVAtlantic"
+                                  Grid.Row="1">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="{Binding Logo}" 
+                                               Height="90"/>
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding TeamName}"
+                                                       Foreground="Gray"
+                                                       FontFamily="Verdana"
+                                                       FontSize="20"/>
+                                            <StackPanel Orientation="Horizontal" >
+                                                <TextBlock>
+                                                    <Hyperlink TextDecorations="None"
+                                                               Foreground="#6995c2"
+                                                               x:Name="HLRoster"
+                                                               Click="HLRoster_Click"
+                                                               FontSize="18">
+                                                        Roster
+                                                    </Hyperlink>
+                                                </TextBlock>
+                                                <TextBlock Margin="10,0,10,0">
+                                                    <Hyperlink TextDecorations="None"
+                                                               Foreground="#6995c2"
+                                                               x:Name="HLMatchup"
+                                                               Click="HLMatchup_Click"
+                                                               FontSize="18">
+                                                        Matchup
+                                                    </Hyperlink>
+                                                </TextBlock>
+                                                <TextBlock>
+                                                    <Hyperlink TextDecorations="None"
+                                                               Foreground="#6995c2"
+                                                               x:Name="HLFirstLineup"
+                                                               Click="HLFirstLineup_Click"
+                                                               FontSize="18">
+                                                        First Lineup
+                                                    </Hyperlink>
+                                                </TextBlock>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <TextBlock Text="Central"
+                                   HorizontalAlignment="Center"
+                                   Foreground="Gray"
+                                   FontFamily="Verdana"
+                                   FontSize="20" 
+                                   Grid.Column="1"/>
+                        <ListView x:Name="LVCentral"
+                                  Grid.Row="1"
+                                  Grid.Column="1">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="{Binding Logo}"
+                                               Height="90" />
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding TeamName}"
+                                                       Foreground="Gray"
+                                                       FontFamily="Verdana"
+                                                       FontSize="20" />
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock>
+                                                    <Hyperlink TextDecorations="None"
+                                                               Foreground="#6995c2"
+                                                               x:Name="HLRoster"
+                                                               Click="HLRoster_Click"
+                                                               FontSize="18">
+                                                        Roster
+                                                    </Hyperlink>
+                                                </TextBlock>
+                                                <TextBlock Margin="10,0,10,0">
+                                                    <Hyperlink TextDecorations="None"
+                                                               Foreground="#6995c2"
+                                                               x:Name="HLMatchup"
+                                                               Click="HLMatchup_Click"
+                                                               FontSize="18">
+                                                        Matchup
+                                                    </Hyperlink>
+                                                </TextBlock>
+                                                <TextBlock>
+                                                    <Hyperlink TextDecorations="None"
+                                                               Foreground="#6995c2"
+                                                               x:Name="HLFirstLineup"
+                                                               Click="HLFirstLineup_Click"
+                                                               FontSize="18">
+                                                        First Lineup
+                                                    </Hyperlink>
+                                                </TextBlock>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <TextBlock Text="Southeast"
+                                   HorizontalAlignment="Center"
+                                   Foreground="Gray"
+                                   FontFamily="Verdana"
+                                   FontSize="20"
+                                   Grid.Column="2" />
+                        <ListView x:Name="LVSoutheast"
+                                  Grid.Row="1"
+                                  Grid.Column="2">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="{Binding Logo}"
+                                               Height="90" />
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding TeamName}"
+                                                       Foreground="Gray"
+                                                       FontFamily="Verdana"
+                                                       FontSize="20" />
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock>
+                                                    <Hyperlink TextDecorations="None"
+                                                               Foreground="#6995c2"
+                                                               x:Name="HLRoster"
+                                                               Click="HLRoster_Click"
+                                                               FontSize="18">
+                                                        Roster
+                                                    </Hyperlink>
+                                                </TextBlock>
+                                                <TextBlock Margin="10,0,10,0">
+                                                    <Hyperlink TextDecorations="None"
+                                                               Foreground="#6995c2"
+                                                               x:Name="HLMatchup"
+                                                               Click="HLMatchup_Click"
+                                                               FontSize="18">
+                                                        Matchup
+                                                    </Hyperlink>
+                                                </TextBlock>
+                                                <TextBlock>
+                                                    <Hyperlink TextDecorations="None"
+                                                               Foreground="#6995c2"
+                                                               x:Name="HLFirstLineup"
+                                                               Click="HLFirstLineup_Click"
+                                                               FontSize="18">
+                                                        First Lineup
+                                                    </Hyperlink>
+                                                </TextBlock>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+            <TabItem x:Name="TIWestern">
+                <TabItem.Header>
+                    <TextBlock Text="Western"
+                               Foreground="Gray"
+                               FontFamily="Verdana"
+                               FontSize="20" />
+                </TabItem.Header>
+                <TabItem.Content>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="Northwest"
+                                   HorizontalAlignment="Center"
+                                   Foreground="Gray"
+                                   FontFamily="Verdana"
+                                   FontSize="20" />
+                        <ListView x:Name="LVNorthwest"
+                                  Grid.Row="1">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="{Binding Logo}"
+                                               Height="90" />
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding TeamName}"
+                                                       Foreground="Gray"
+                                                       FontFamily="Verdana"
+                                                       FontSize="20" />
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock>
+                                                    <Hyperlink TextDecorations="None"
+                                                               Foreground="#6995c2"
+                                                               Click="HLRoster_Click"
+                                                               FontSize="18">
+                                                        Roster
+                                                    </Hyperlink>
+                                                </TextBlock>
+                                                <TextBlock Margin="10,0,10,0">
+                                                    <Hyperlink TextDecorations="None"
+                                                               Foreground="#6995c2"
+                                                               Click="HLMatchup_Click"
+                                                               FontSize="18">
+                                                        Matchup
+                                                    </Hyperlink>
+                                                </TextBlock>
+                                                <TextBlock>
+                                                    <Hyperlink TextDecorations="None"
+                                                               Foreground="#6995c2"
+                                                               Click="HLFirstLineup_Click"
+                                                               FontSize="18">
+                                                        First Lineup
+                                                    </Hyperlink>
+                                                </TextBlock>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <TextBlock Text="Pacific"
+                                   HorizontalAlignment="Center"
+                                   Foreground="Gray"
+                                   FontFamily="Verdana"
+                                   FontSize="20"
+                                   Grid.Column="1" />
+                        <ListView x:Name="LVPacific"
+                                  Grid.Row="1"
+                                  Grid.Column="1">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="{Binding Logo}"
+                                               Height="90" />
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding TeamName}"
+                                                       Foreground="Gray"
+                                                       FontFamily="Verdana"
+                                                       FontSize="20" />
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock>
+                                                    <Hyperlink TextDecorations="None"
+                                                               Foreground="#6995c2"
+                                                               Click="HLRoster_Click"
+                                                               FontSize="18">
+                                                        Roster
+                                                    </Hyperlink>
+                                                </TextBlock>
+                                                <TextBlock Margin="10,0,10,0">
+                                                    <Hyperlink TextDecorations="None"
+                                                               Foreground="#6995c2"
+                                                               Click="HLMatchup_Click"
+                                                               FontSize="18">
+                                                        Matchup
+                                                    </Hyperlink>
+                                                </TextBlock>
+                                                <TextBlock>
+                                                    <Hyperlink TextDecorations="None"
+                                                               Foreground="#6995c2"
+                                                               Click="HLFirstLineup_Click"
+                                                               FontSize="18">
+                                                        First Lineup
+                                                    </Hyperlink>
+                                                </TextBlock>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        <TextBlock Text="Southwest"
+                                   HorizontalAlignment="Center"
+                                   Foreground="Gray"
+                                   FontFamily="Verdana"
+                                   FontSize="20"
+                                   Grid.Column="2" />
+                        <ListView x:Name="LVSouthwest"
+                                  Grid.Row="1"
+                                  Grid.Column="2">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="{Binding Logo}"
+                                               Height="90" />
+                                        <StackPanel VerticalAlignment="Center">
+                                            <TextBlock Text="{Binding TeamName}"
+                                                       Foreground="Gray"
+                                                       FontFamily="Verdana"
+                                                       FontSize="20" />
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock>
+                                                    <Hyperlink TextDecorations="None"
+                                                               Foreground="#6995c2"
+                                                               Click="HLRoster_Click"
+                                                               FontSize="18">
+                                                        Roster
+                                                    </Hyperlink>
+                                                </TextBlock>
+                                                <TextBlock Margin="10,0,10,0">
+                                                    <Hyperlink TextDecorations="None"
+                                                               Foreground="#6995c2"
+                                                               Click="HLMatchup_Click"
+                                                               FontSize="18">
+                                                        Matchup
+                                                    </Hyperlink>
+                                                </TextBlock>
+                                                <TextBlock>
+                                                    <Hyperlink TextDecorations="None"
+                                                               Foreground="#6995c2"
+                                                               Click="HLFirstLineup_Click"
+                                                               FontSize="18">
+                                                        First Lineup
+                                                    </Hyperlink>
+                                                </TextBlock>
+                                            </StackPanel>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Grid>
+                </TabItem.Content>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Page>

@@ -1,4 +1,4 @@
-﻿using NBA.Pages;
+﻿using NBA_2hour.Pages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace NBA
+namespace NBA_2hour
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
@@ -24,13 +24,30 @@ namespace NBA
         public MainWindow()
         {
             InitializeComponent();
-            App.MainWindowInstanse = this;
-            MainFrame.Navigate(new PMainScreen());
+            App.MainWindowInstance = this;
+            MainFrame.Navigate(new MainScreen());
         }
 
         private void BBack_Click(object sender, RoutedEventArgs e)
         {
             MainFrame.GoBack();
+        }
+
+        private void BLogout_Click(object sender, RoutedEventArgs e)
+        {
+            if (App.loggedAdmin == null)
+            {
+                return;
+            }
+            App.loggedAdmin = null;
+            do
+            {
+                MainFrame.GoBack();
+
+            }
+            while (MainFrame.CanGoBack);
+            MainFrame.Navigate(new AdminLogin());
+            MainFrame.NavigationService.RemoveBackEntry();
         }
     }
 }

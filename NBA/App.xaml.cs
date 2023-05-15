@@ -1,14 +1,13 @@
-﻿using System;
+﻿using NBA_2hour.Models;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Media;
-using NBA.Models;
 
-namespace NBA
+namespace NBA_2hour
 {
     /// <summary>
     /// Логика взаимодействия для App.xaml
@@ -16,7 +15,7 @@ namespace NBA
     public partial class App : Application
     {
         public static NBAEntities DB = new NBAEntities();
+        public static MainWindow MainWindowInstance;
         public static Admin loggedAdmin = null;
-        public static MainWindow MainWindowInstanse;
     }
 }

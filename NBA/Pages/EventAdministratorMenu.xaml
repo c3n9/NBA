@@ -1,0 +1,64 @@
+﻿<Page x:Class="NBA_2hour.Pages.EventAdministratorMenu"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NBA_2hour.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="EventAdministratorMenu"
+      Loaded="Page_Loaded">
+
+    <Grid>
+        <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+            <StackPanel Margin="0,0,30,0">
+                <Button x:Name="BManageSeasons"
+                        Content="Manage Seasons"
+                        Click="BManageSeasons_Click"
+                        Background="#6995c2"
+                        BorderThickness="0"
+                        Width="200"
+                        Height="100"
+                        Foreground="white"
+                        FontFamily="Verdana"
+                        FontSize="20"
+                        Margin="0,0,0,20" />
+                <Button x:Name="BManageTeams"
+                        Content="Manage Teams"
+                        Click="BManageTeams_Click"
+                        Background="#6995c2"
+                        BorderThickness="0"
+                        Width="200"
+                        Height="100"
+                        Foreground="white"
+                        FontFamily="Verdana"
+                        FontSize="20" />
+            </StackPanel>
+            <StackPanel>
+                <Button x:Name="BManageMatchups"
+                        Content="Manage Matchups"
+                        Click="BManageMatchups_Click"
+                        Background="#6995c2"
+                        BorderThickness="0"
+                        Width="200"
+                        Height="100"
+                        Foreground="white"
+                        FontFamily="Verdana"
+                        FontSize="20"
+                        Margin="0,0,0,20" />
+                <Button x:Name="BManagePlayers"
+                        Content="Manage Players"
+                        Click="BManagePlayers_Click"
+                        Background="#6995c2"
+                        BorderThickness="0"
+                        Width="200"
+                        Height="100"
+                        Foreground="white"
+                        FontFamily="Verdana"
+                        FontSize="20" />
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>

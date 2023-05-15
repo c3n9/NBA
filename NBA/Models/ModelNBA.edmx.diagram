@@ -4,44 +4,45 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="835ccc7ef78b48989106264efc15d511" Name="Diagram1" ZoomLevel="80">
-        <EntityTypeShape EntityType="NBAModel.ActionType" Width="1.5" PointX="8.25" PointY="19" IsExpanded="true" />
-        <EntityTypeShape EntityType="NBAModel.Admin" Width="1.5" PointX="13" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="NBAModel.Conference" Width="1.5" PointX="0.75" PointY="12" IsExpanded="true" />
-        <EntityTypeShape EntityType="NBAModel.Country" Width="1.5" PointX="3" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="NBAModel.Division" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NBAModel.Matchup" Width="1.5" PointX="7.5" PointY="10.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NBAModel.MatchupDetail" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="NBAModel.MatchupLog" Width="1.5" PointX="10.5" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="NBAModel.MatchupType" Width="1.5" PointX="5.25" PointY="16" IsExpanded="true" />
-        <EntityTypeShape EntityType="NBAModel.Pictures" Width="1.5" PointX="2.75" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="NBAModel.Player" Width="1.5" PointX="5.25" PointY="4.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="NBAModel.PlayerInTeam" Width="1.5" PointX="10.5" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="NBAModel.PlayerStatistics" Width="1.5" PointX="7.5" PointY="4" IsExpanded="true" />
-        <EntityTypeShape EntityType="NBAModel.Position" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
-        <EntityTypeShape EntityType="NBAModel.PostSeason" Width="1.5" PointX="7.5" PointY="15.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NBAModel.Role" Width="1.5" PointX="10.75" PointY="2.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="NBAModel.Season" Width="1.5" PointX="8.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="NBAModel.Team" Width="1.5" PointX="5.25" PointY="10.875" IsExpanded="true" />
-        <AssociationConnector Association="NBAModel.FK_MatchupLog_ActionType" ManuallyRouted="false" />
-        <AssociationConnector Association="NBAModel.FK_Admin_Role" ManuallyRouted="false" />
-        <AssociationConnector Association="NBAModel.FK_Division_Conference" ManuallyRouted="false" />
-        <AssociationConnector Association="NBAModel.FK_Player_Country" ManuallyRouted="false" />
-        <AssociationConnector Association="NBAModel.FK_Team_Division" ManuallyRouted="false" />
-        <AssociationConnector Association="NBAModel.FK_Matchup_Season" ManuallyRouted="false" />
-        <AssociationConnector Association="NBAModel.FK_Schedule_SeasonType" ManuallyRouted="false" />
-        <AssociationConnector Association="NBAModel.FK_Schedule_Team" ManuallyRouted="false" />
-        <AssociationConnector Association="NBAModel.FK_Schedule_Team1" ManuallyRouted="false" />
-        <AssociationConnector Association="NBAModel.FK_MatchupLog_Player" ManuallyRouted="false" />
-        <AssociationConnector Association="NBAModel.FK_MatchupLog_Team" ManuallyRouted="false" />
-        <AssociationConnector Association="NBAModel.FK_MatchupStatistics_Player" ManuallyRouted="false" />
-        <AssociationConnector Association="NBAModel.FK_Player_Position" ManuallyRouted="false" />
-        <AssociationConnector Association="NBAModel.FK_PlayerInTeam_Player" ManuallyRouted="false" />
-        <AssociationConnector Association="NBAModel.FK_PlayerInTeam_Season" ManuallyRouted="false" />
-        <AssociationConnector Association="NBAModel.FK_PlayerInTeam_Team" ManuallyRouted="false" />
-        <AssociationConnector Association="NBAModel.FK_MatchupStatistics_Team" ManuallyRouted="false" />
-        <AssociationConnector Association="NBAModel.FK_TeamInPostseason_Season" ManuallyRouted="false" />
-        <AssociationConnector Association="NBAModel.FK_TeamInPostseason_Team" ManuallyRouted="false" />
+      <Diagram DiagramId="4fe9e8eab40e44e9ac894372d37fb8d9" Name="Diagram1">
+        <EntityTypeShape EntityType="NBAModel.ActionType" Width="1.5" PointX="8.25" PointY="16.75" />
+        <EntityTypeShape EntityType="NBAModel.Admin" Width="1.5" PointX="13" PointY="2" />
+        <EntityTypeShape EntityType="NBAModel.Conference" Width="1.5" PointX="0.75" PointY="12.25" />
+        <EntityTypeShape EntityType="NBAModel.Country" Width="1.5" PointX="6" PointY="1" />
+        <EntityTypeShape EntityType="NBAModel.Division" Width="1.5" PointX="3" PointY="12.125" />
+        <EntityTypeShape EntityType="NBAModel.Matchup" Width="1.5" PointX="10.5" PointY="11.125" />
+        <EntityTypeShape EntityType="NBAModel.MatchupDetail" Width="1.5" PointX="0.75" PointY="1.75" />
+        <EntityTypeShape EntityType="NBAModel.MatchupLog" Width="1.5" PointX="10.5" PointY="6.5" />
+        <EntityTypeShape EntityType="NBAModel.MatchupType" Width="1.5" PointX="8.25" PointY="19.25" />
+        <EntityTypeShape EntityType="NBAModel.Pictures" Width="1.5" PointX="2.75" PointY="1.75" />
+        <EntityTypeShape EntityType="NBAModel.Player" Width="1.5" PointX="8.25" PointY="0.75" />
+        <EntityTypeShape EntityType="NBAModel.PlayerInTeam" Width="1.5" PointX="7.5" PointY="6.625" />
+        <EntityTypeShape EntityType="NBAModel.PlayerStatistics" Width="1.5" PointX="7.5" PointY="10.375" />
+        <EntityTypeShape EntityType="NBAModel.Position" Width="1.5" PointX="6" PointY="3.375" />
+        <EntityTypeShape EntityType="NBAModel.PostSeason" Width="1.5" PointX="10.5" PointY="16.125" />
+        <EntityTypeShape EntityType="NBAModel.Role" Width="1.5" PointX="10.75" PointY="2.5" />
+        <EntityTypeShape EntityType="NBAModel.Season" Width="1.5" PointX="5.25" PointY="7.125" />
+        <EntityTypeShape EntityType="NBAModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="NBAModel.Team" Width="1.5" PointX="5.25" PointY="11.25" />
+        <AssociationConnector Association="NBAModel.FK_MatchupLog_ActionType" />
+        <AssociationConnector Association="NBAModel.FK_Admin_Role" />
+        <AssociationConnector Association="NBAModel.FK_Division_Conference" />
+        <AssociationConnector Association="NBAModel.FK_Player_Country" />
+        <AssociationConnector Association="NBAModel.FK_Team_Division" />
+        <AssociationConnector Association="NBAModel.FK_Matchup_Season" />
+        <AssociationConnector Association="NBAModel.FK_Schedule_SeasonType" />
+        <AssociationConnector Association="NBAModel.FK_Schedule_Team" />
+        <AssociationConnector Association="NBAModel.FK_Schedule_Team1" />
+        <AssociationConnector Association="NBAModel.FK_MatchupLog_Player" />
+        <AssociationConnector Association="NBAModel.FK_MatchupLog_Team" />
+        <AssociationConnector Association="NBAModel.FK_MatchupStatistics_Player" />
+        <AssociationConnector Association="NBAModel.FK_Player_Position" />
+        <AssociationConnector Association="NBAModel.FK_PlayerInTeam_Player" />
+        <AssociationConnector Association="NBAModel.FK_PlayerInTeam_Season" />
+        <AssociationConnector Association="NBAModel.FK_PlayerInTeam_Team" />
+        <AssociationConnector Association="NBAModel.FK_MatchupStatistics_Team" />
+        <AssociationConnector Association="NBAModel.FK_TeamInPostseason_Season" />
+        <AssociationConnector Association="NBAModel.FK_TeamInPostseason_Team" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NBA.Properties
+namespace NBA_2hour.Properties
 {
 
 

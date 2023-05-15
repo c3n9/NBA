@@ -1,0 +1,104 @@
+﻿<Page x:Class="NBA_2hour.Pages.PlayersMain"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:NBA_2hour.Pages"
+      mc:Ignorable="d"
+      d:DesignHeight="450"
+      d:DesignWidth="800"
+      Title="PlayersMain"
+      Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Border Background="#6995c2">
+            <StackPanel Orientation="Horizontal"
+                        VerticalAlignment="Center">
+                <TextBlock Text="Season:"
+                           HorizontalAlignment="Center"
+                           Foreground="White"
+                           FontFamily="Verdana"
+                           FontSize="16"
+                           Margin="10" />
+                <ComboBox x:Name="CBSeason"
+                          Width="120"
+                          Height="20"
+                          SelectionChanged="CBSeason_SelectionChanged"
+                          DisplayMemberPath="Name" />
+                <TextBlock Text="Team:"
+                           HorizontalAlignment="Center"
+                           Foreground="White"
+                           FontFamily="Verdana"
+                           FontSize="16"
+                           Margin="10" />
+                <ComboBox x:Name="CBTeam"
+                          Width="120"
+                          Height="20"
+                          SelectionChanged="CBTeam_SelectionChanged"
+                          DisplayMemberPath="TeamName" />
+                <TextBlock Text="Playername:"
+                           HorizontalAlignment="Center"
+                           Foreground="White"
+                           FontFamily="Verdana"
+                           FontSize="16"
+                           Margin="10" />
+                <TextBox x:Name="TBSearch"
+                         Width="120"
+                         Height="20"
+                         MaxLength="20"
+                         TextChanged="TBSearch_TextChanged" />
+            </StackPanel>
+
+        </Border>
+        <DataGrid ColumnWidth="*"
+                  AutoGenerateColumns="False"
+                  x:Name="DGPlayers"
+                  Grid.Row="1"
+                  IsReadOnly="True">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="No."
+                                    Binding="{Binding ShirtNumber}" />
+                <DataGridTextColumn Header="Name"
+                                    Binding="{Binding Player.Name}" />
+                <DataGridTextColumn Header="Team"
+                                    Binding="{Binding Team.Abbr}" />
+                <DataGridTextColumn Header="DateofBirth"
+                                    Binding="{Binding Player.DateOfBirth}" />
+                <DataGridTextColumn Header="DateofBirth"
+                                    Binding="{Binding Player.DateOfBirth}" />
+                <DataGridTextColumn Header="Width"
+                                    Binding="{Binding Player.Weight}" />
+                <DataGridTextColumn Header="Height"
+                                    Binding="{Binding Player.Height}" />
+                <DataGridTextColumn Header="Experience"
+                                    Binding="{Binding Player.ExperienseInNBA}" />
+                <DataGridTextColumn Header="Country"
+                                    Binding="{Binding Player.Country.CountryName}" />
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <StackPanel Orientation="Horizontal"
+                    Grid.Row="2">
+            <Button x:Name="BFirstPage"
+                    Content="first"
+                    Click="BFirstPage_Click" />
+            <Button x:Name="BPreviousPage"
+                    Content="Previos"
+                    Click="BPreviousPage_Click" />
+            <TextBox x:Name="TBPage" Width="100"/>
+            <TextBlock x:Name="TBPagingText"/>
+            <Button x:Name="BNextPage"
+                    Content="Next"
+                    Click="BNextPage_Click" />
+            <Button x:Name="BLastPage"
+                    Content="Last"
+                    Click="BLastPage_Click" />
+            <TextBlock x:Name="TBTotalRecord" />
+        </StackPanel>
+    </Grid>
+</Page>

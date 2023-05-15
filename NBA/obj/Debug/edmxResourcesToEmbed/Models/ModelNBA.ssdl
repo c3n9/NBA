@@ -18,7 +18,7 @@
     <Property Name="DateOfBirth" Type="date" Nullable="false" />
     <Property Name="Phone" Type="varchar" MaxLength="20" />
     <Property Name="Email" Type="varchar" MaxLength="50" />
-    <Property Name="RoleId" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="Conference">
     <Key>
@@ -174,7 +174,7 @@
     <Key>
       <PropertyRef Name="RoleId" />
     </Key>
-    <Property Name="RoleId" Type="char" MaxLength="1" Nullable="false" />
+    <Property Name="RoleId" Type="int" Nullable="false" />
     <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Season">
@@ -183,6 +183,16 @@
     </Key>
     <Property Name="SeasonId" Type="int" Nullable="false" />
     <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="Team">
     <Key>
@@ -194,7 +204,7 @@
     <Property Name="Coach" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Abbr" Type="char" MaxLength="3" Nullable="false" />
     <Property Name="Stadium" Type="varchar" MaxLength="100" />
-    <Property Name="Logo" Type="image" Nullable="false" />
+    <Property Name="Logo" Type="image" />
   </EntityType>
   <Association Name="FK_Admin_Role">
     <End Role="Role" Type="Self.Role" Multiplicity="1" />
@@ -442,6 +452,7 @@
     <EntitySet Name="PostSeason" EntityType="Self.PostSeason" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Season" EntityType="Self.Season" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Admin_Role" Association="Self.FK_Admin_Role">
       <End Role="Role" EntitySet="Role" />

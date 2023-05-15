@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NBA.Models
+namespace NBA_2hour.Models
 {
     using System;
     using System.Data.Entity;
@@ -42,6 +42,7 @@ namespace NBA.Models
         public virtual DbSet<PostSeason> PostSeason { get; set; }
         public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Season> Season { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Team> Team { get; set; }
     }
 }

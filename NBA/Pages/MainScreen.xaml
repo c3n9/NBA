@@ -1,0 +1,91 @@
+﻿<Page x:Class="NBA_2hour.Pages.MainScreen"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:NBA_2hour.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="MainScreen"
+      Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center">
+            <Button x:Name="BVisitor"
+                    Background="#6995c2"
+                    BorderThickness="0"
+                    Width="200"
+                    Height="100"
+                    Foreground="white"
+                    FontFamily="Verdana"
+                    Content="Visitor"
+                    Click="BVisitor_Click"
+                    FontSize="25" 
+                    Margin="10"/>
+            <Button x:Name="BAdmin"
+                    Background="#6995c2"
+                    BorderThickness="0"
+                    Width="200"
+                    Height="100"
+                    Foreground="white"
+                    FontFamily="Verdana"
+                    Content="Admin"
+                    Click="BAdmin_Click"
+                    FontSize="25" />
+        </StackPanel>
+        <DockPanel Grid.Row="1"
+                   Margin="10">
+            <Button x:Name="BPrevious"
+                    Click="BPrevious_Click"
+                    Content="&#60;"
+                    DockPanel.Dock="Left"
+                    Height="250"
+                    Width="30"
+                    Background="White"
+                    BorderThickness="0"
+                    FontFamily="Verdana"
+                    FontSize="20"
+                    Foreground="Gray"/>
+
+            <Button x:Name="BNext"
+                    Click="BNext_Click"
+                    Content="&#62;"
+                    DockPanel.Dock="Right"
+                    Background="White"
+                    BorderThickness="0"
+                    FontFamily="Verdana"
+                    FontSize="20"
+                    Height="250"
+                    Width="30"
+                    Foreground="Gray"/>
+
+            <ListView x:Name="LVImages"
+                      IsEnabled="False"
+                      ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                      HorizontalContentAlignment="Center">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding Img}"
+                               Height="250"
+                               Width="425" 
+                               RenderOptions.BitmapScalingMode="Fant"
+                               Stretch="Fill"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal" 
+                                   HorizontalAlignment="Center"/>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+            </ListView>
+        </DockPanel>
+
+    </Grid>
+</Page>

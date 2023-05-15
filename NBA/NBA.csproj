@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6A96D04C-ED9F-4FB2-BA5D-7362C7232D02}</ProjectGuid>
+    <ProjectGuid>{C73F6362-68E5-406C-A9A9-A34DF061F3D2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>NBA</RootNamespace>
-    <AssemblyName>NBA</AssemblyName>
+    <RootNamespace>NBA_2hour</RootNamespace>
+    <AssemblyName>NBA-2hour</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -64,8 +64,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Models\Partial\Experience.cs" />
-    <Compile Include="Services\MyTools.cs" />
+    <Page Include="AppWindows\ChooseRoleWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AppWindows\MessageWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -74,47 +80,69 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="AppWindows\ChooseRoleWindow.xaml.cs">
+      <DependentUpon>ChooseRoleWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AppWindows\MessageWindow.xaml.cs">
+      <DependentUpon>MessageWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\PAdminLogin.xaml">
+    <Page Include="Pages\AdminLogin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PEventAdministratorMenu.xaml">
+    <Page Include="Pages\EventAdministratorMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PMainScreen.xaml">
+    <Page Include="Pages\MainScreen.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PMatchupList.xaml">
+    <Page Include="Pages\ManageMatchup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PPhotos.xaml">
+    <Page Include="Pages\ManagePlayers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PPlayersMain.xaml">
+    <Page Include="Pages\ManageSeasons.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PTeamDetail.xaml">
+    <Page Include="Pages\ManageTeams.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PTeamsMain.xaml">
+    <Page Include="Pages\MatchupList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PTechnicalAdministratorMenu.xaml">
+    <Page Include="Pages\Photos.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\PVisitorMenu.xaml">
+    <Page Include="Pages\PlayersMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TeamDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TeamsMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TechnicalAdministratorMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\VisitorMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -162,6 +190,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelNBA.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Partials\Matchup.cs" />
+    <Compile Include="Models\Partials\Player.cs" />
     <Compile Include="Models\Pictures.cs">
       <DependentUpon>ModelNBA.tt</DependentUpon>
     </Compile>
@@ -186,38 +216,53 @@
     <Compile Include="Models\Season.cs">
       <DependentUpon>ModelNBA.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>ModelNBA.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Team.cs">
       <DependentUpon>ModelNBA.tt</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PAdminLogin.xaml.cs">
-      <DependentUpon>PAdminLogin.xaml</DependentUpon>
+    <Compile Include="Pages\AdminLogin.xaml.cs">
+      <DependentUpon>AdminLogin.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PEventAdministratorMenu.xaml.cs">
-      <DependentUpon>PEventAdministratorMenu.xaml</DependentUpon>
+    <Compile Include="Pages\EventAdministratorMenu.xaml.cs">
+      <DependentUpon>EventAdministratorMenu.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PMainScreen.xaml.cs">
-      <DependentUpon>PMainScreen.xaml</DependentUpon>
+    <Compile Include="Pages\MainScreen.xaml.cs">
+      <DependentUpon>MainScreen.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PMatchupList.xaml.cs">
-      <DependentUpon>PMatchupList.xaml</DependentUpon>
+    <Compile Include="Pages\ManageMatchup.xaml.cs">
+      <DependentUpon>ManageMatchup.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PPhotos.xaml.cs">
-      <DependentUpon>PPhotos.xaml</DependentUpon>
+    <Compile Include="Pages\ManagePlayers.xaml.cs">
+      <DependentUpon>ManagePlayers.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PPlayersMain.xaml.cs">
-      <DependentUpon>PPlayersMain.xaml</DependentUpon>
+    <Compile Include="Pages\ManageSeasons.xaml.cs">
+      <DependentUpon>ManageSeasons.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PTeamDetail.xaml.cs">
-      <DependentUpon>PTeamDetail.xaml</DependentUpon>
+    <Compile Include="Pages\ManageTeams.xaml.cs">
+      <DependentUpon>ManageTeams.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PTeamsMain.xaml.cs">
-      <DependentUpon>PTeamsMain.xaml</DependentUpon>
+    <Compile Include="Pages\MatchupList.xaml.cs">
+      <DependentUpon>MatchupList.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PTechnicalAdministratorMenu.xaml.cs">
-      <DependentUpon>PTechnicalAdministratorMenu.xaml</DependentUpon>
+    <Compile Include="Pages\Photos.xaml.cs">
+      <DependentUpon>Photos.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\PVisitorMenu.xaml.cs">
-      <DependentUpon>PVisitorMenu.xaml</DependentUpon>
+    <Compile Include="Pages\PlayersMain.xaml.cs">
+      <DependentUpon>PlayersMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TeamDetail.xaml.cs">
+      <DependentUpon>TeamDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TeamsMain.xaml.cs">
+      <DependentUpon>TeamsMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TechnicalAdministratorMenu.xaml.cs">
+      <DependentUpon>TechnicalAdministratorMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\VisitorMain.xaml.cs">
+      <DependentUpon>VisitorMain.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -253,26 +298,22 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\logo.jpg" />
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\gym.jpg" />
-    <Resource Include="Images\photo.jpg" />
-    <Resource Include="Images\ball-of-basketball.png" />
     <Content Include="Models\ModelNBA.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelNBA.edmx</DependentUpon>
       <LastGenOutput>ModelNBA.Context.cs</LastGenOutput>
+      <DependentUpon>ModelNBA.edmx</DependentUpon>
     </Content>
     <Content Include="Models\ModelNBA.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ModelNBA.edmx</DependentUpon>
       <LastGenOutput>ModelNBA.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\logo.jpg" />
+    <Resource Include="Resources\person.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
