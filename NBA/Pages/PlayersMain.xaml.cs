@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,12 +22,15 @@ namespace NBA_2hour.Pages
     /// </summary>
     public partial class PlayersMain : Page
     {
+        List<PlayerInTeam> filtred;
         int pagesCount;
+        char currentLetter = ' ';
         int playersOnPage = 10;
         int currentPage = 0;
         public PlayersMain()
         {
             InitializeComponent();
+            GenerateButtons();
             var team = App.DB.Team.ToList();
             team.Insert(0, new Team() { TeamName = "View all" });
             CBTeam.ItemsSource = team.ToList();
@@ -36,7 +40,35 @@ namespace NBA_2hour.Pages
             CBSeason.SelectedIndex = 2;
             Refresh();
         }
-
+        private void GenerateButtons()
+        {
+            List<char> alphabet = new List<char>();
+            for (int i = 0; i < 26; i++)
+            {
+                alphabet.Add(Convert.ToChar(i + 65));
+            }
+            foreach (char letter in alphabet)
+            {
+                var button = new Button();
+                button.Content = letter;
+                button.DataContext = letter;
+                button.Background = new SolidColorBrush(Color.FromRgb(105, 149, 194));
+                button.FontFamily = new FontFamily("Verdana");
+                button.Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255));
+                button.BorderThickness = new Thickness(0, 0, 0, 0);
+                button.FontWeight = FontWeights.Bold;
+                button.Width = 25;
+                button.Margin = new Thickness(10, 0, 0, 0);
+                button.FontSize = 20;
+                button.Click += Letter_CLick;
+                BAlphabetButtons.Children.Add(button);
+            }
+        }
+        private void Letter_CLick(object sender, RoutedEventArgs e)
+        {
+            currentLetter = (char)(sender as Button).DataContext;
+            Refresh();
+        }
         private void CBSeason_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Refresh();
@@ -53,29 +85,28 @@ namespace NBA_2hour.Pages
         }
         private void Refresh()
         {
-            var filter = App.DB.PlayerInTeam.ToList();
+            filtred = App.DB.PlayerInTeam.ToList();
             var selectedTeam = CBTeam.SelectedItem as Team;
             var textSearch = TBSearch.Text.ToLower();
-            if (selectedTeam.TeamId != 0)
-                filter = filter.Where(f => f.TeamId == selectedTeam.TeamId).ToList();
+            if (CBTeam.SelectedIndex != 0 && selectedTeam != null)
+                filtred = filtred.Where(f => f.TeamId == selectedTeam.TeamId).ToList();
             if (!String.IsNullOrWhiteSpace(textSearch))
-                filter = filter.Where(f => f.Player.Name.ToLower().Contains(textSearch)).ToList();
+                filtred = filtred.Where(f => f.Player.Name.ToLower().Contains(textSearch)).ToList();
             if (CBSeason.SelectedIndex == 1)
-                filter = filter.Where(f => f.SeasonId == 1).ToList();
+                filtred = filtred.Where(f => f.SeasonId == 1).ToList();
             if (CBSeason.SelectedIndex == 2)
-                filter = filter.Where(f => f.SeasonId == 2).ToList();
+                filtred = filtred.Where(f => f.SeasonId == 2).ToList();
             if (CBSeason.SelectedIndex == 3)
-                filter = filter.Where(f => f.SeasonId == 3).ToList();
-
-            filter.Add(new PlayerInTeam());
-
-            pagesCount = filter.Count / playersOnPage;
-            if (filter.Count % playersOnPage != 0)
+                filtred = filtred.Where(f => f.SeasonId == 3).ToList();
+            if (currentLetter != ' ')
+                filtred = filtred.Where(f => f.Player.Name[0] == currentLetter).ToList();
+            pagesCount = filtred.Count / playersOnPage;
+            if (filtred.Count % playersOnPage != 0)
                 pagesCount++;
-
-            TBTotalRecord.Text = $"{filter.Count}, {playersOnPage} in one page";
-
-            DGPlayers.ItemsSource = filter.Skip(playersOnPage * currentPage).Take(playersOnPage);
+            TBTotalRecord.Text = $"Total {filtred.Count} records, {playersOnPage} records in one page";
+            TBPage.Text = currentPage.ToString();
+            DGPlayers.ItemsSource = filtred.Skip(playersOnPage * currentPage).Take(playersOnPage);
+            TBPagingText.Text = $"of {pagesCount - 1}";
         }
 
         private void BFirstPage_Click(object sender, RoutedEventArgs e)
@@ -102,7 +133,7 @@ namespace NBA_2hour.Pages
 
         private void BLastPage_Click(object sender, RoutedEventArgs e)
         {
-            currentPage = pagesCount-1;
+            currentPage = pagesCount - 1;
             Refresh();
         }
 
@@ -111,6 +142,31 @@ namespace NBA_2hour.Pages
             App.MainWindowInstance.TBWelcome.Visibility = Visibility.Collapsed;
             App.MainWindowInstance.TBName.Text = "Players Main";
             App.MainWindowInstance.TBName.VerticalAlignment = VerticalAlignment.Center;
+        }
+
+        private void BAll_Click(object sender, RoutedEventArgs e)
+        {
+            currentLetter = ' ';
+            Refresh();
+        }
+
+        private void TBPage_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (TBPage.Text == string.Empty)
+                return;
+            if (int.Parse(TBPage.Text) > filtred.Count)
+                return;
+            currentPage = int.Parse(TBPage.Text);
+            Refresh();
+        }
+
+        private void TBPage_TextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[0-9]");
+            if (!regex.IsMatch(e.Text))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

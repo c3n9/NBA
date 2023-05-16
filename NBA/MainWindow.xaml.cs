@@ -43,11 +43,8 @@ namespace NBA_2hour
             do
             {
                 MainFrame.GoBack();
-
             }
             while (MainFrame.CanGoBack);
-            MainFrame.Navigate(new AdminLogin());
-            MainFrame.NavigationService.RemoveBackEntry();
         }
     }
 }

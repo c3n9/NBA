@@ -42,7 +42,8 @@
                     <TabItem.Content>
                         <DataGrid ColumnWidth="*"
                                   AutoGenerateColumns="False"
-                                  x:Name="DGPlayers">
+                                  x:Name="DGPlayers"
+                                  IsReadOnly="True">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="No."
                                                     Binding="{Binding ShirtNumber}" />
@@ -71,7 +72,28 @@
                                    FontSize="20" />
                     </TabItem.Header>
                     <TabItem.Content>
-                        <StackPanel />
+                        <DataGrid ColumnWidth="*"
+                                  AutoGenerateColumns="False"
+                                  x:Name="DGMatchup"
+                                  IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Date"
+                                                    Binding="{Binding Starttime}" />
+                                <DataGridTextColumn Header="MatchupType"
+                                                    Binding="{Binding MatchupType.Name}" />
+                                <DataGridTextColumn Header="Opponent"
+                                                    Binding="{Binding Team1.TeamName}" />
+                                <DataGridTextColumn Header="Start Time"
+                                                    Binding="{Binding Starttime}" />
+                                <DataGridTextColumn Header="Result"
+                                                    Binding="{Binding MatcupResult}" />
+                                <DataGridTextColumn Header="Location"
+                                                    Binding="{Binding Location}" />
+                                <DataGridTextColumn Header="Status"
+                                                    Binding="{Binding MatcupStatus}" />
+
+                            </DataGrid.Columns>
+                        </DataGrid>
                     </TabItem.Content>
                 </TabItem>
                 <TabItem>

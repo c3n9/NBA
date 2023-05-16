@@ -17,42 +17,60 @@
             <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Border Background="#6995c2">
-            <StackPanel Orientation="Horizontal"
-                        VerticalAlignment="Center">
-                <TextBlock Text="Season:"
-                           HorizontalAlignment="Center"
-                           Foreground="White"
-                           FontFamily="Verdana"
-                           FontSize="16"
-                           Margin="10" />
-                <ComboBox x:Name="CBSeason"
-                          Width="120"
-                          Height="20"
-                          SelectionChanged="CBSeason_SelectionChanged"
-                          DisplayMemberPath="Name" />
-                <TextBlock Text="Team:"
-                           HorizontalAlignment="Center"
-                           Foreground="White"
-                           FontFamily="Verdana"
-                           FontSize="16"
-                           Margin="10" />
-                <ComboBox x:Name="CBTeam"
-                          Width="120"
-                          Height="20"
-                          SelectionChanged="CBTeam_SelectionChanged"
-                          DisplayMemberPath="TeamName" />
-                <TextBlock Text="Playername:"
-                           HorizontalAlignment="Center"
-                           Foreground="White"
-                           FontFamily="Verdana"
-                           FontSize="16"
-                           Margin="10" />
-                <TextBox x:Name="TBSearch"
-                         Width="120"
-                         Height="20"
-                         MaxLength="20"
-                         TextChanged="TBSearch_TextChanged" />
-            </StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <WrapPanel Margin="10,0,0,0"
+                           x:Name="BAlphabetButtons">
+                    <Button x:Name="BAll"
+                            Content="All"
+                            FontSize="20"
+                            Click="BAll_Click"
+                            FontFamily="Verdana"
+                            Foreground="white"
+                            Background="#6995c2"
+                            BorderThickness="0"
+                            FontWeight="Bold" />
+                </WrapPanel>
+                <StackPanel Orientation="Horizontal"
+                            VerticalAlignment="Center" Grid.Row="1">
+                    <TextBlock Text="Season:"
+                               HorizontalAlignment="Center"
+                               Foreground="White"
+                               FontFamily="Verdana"
+                               FontSize="16"
+                               Margin="10" />
+                    <ComboBox x:Name="CBSeason"
+                              Width="120"
+                              Height="20"
+                              SelectionChanged="CBSeason_SelectionChanged"
+                              DisplayMemberPath="Name" />
+                    <TextBlock Text="Team:"
+                               HorizontalAlignment="Center"
+                               Foreground="White"
+                               FontFamily="Verdana"
+                               FontSize="16"
+                               Margin="10" />
+                    <ComboBox x:Name="CBTeam"
+                              Width="120"
+                              Height="20"
+                              SelectionChanged="CBTeam_SelectionChanged"
+                              DisplayMemberPath="TeamName" />
+                    <TextBlock Text="Playername:"
+                               HorizontalAlignment="Center"
+                               Foreground="White"
+                               FontFamily="Verdana"
+                               FontSize="16"
+                               Margin="10" />
+                    <TextBox x:Name="TBSearch"
+                             Width="120"
+                             Height="20"
+                             MaxLength="20"
+                             TextChanged="TBSearch_TextChanged" />
+                </StackPanel>
+            </Grid>
 
         </Border>
         <DataGrid ColumnWidth="*"
@@ -82,23 +100,61 @@
 
             </DataGrid.Columns>
         </DataGrid>
-        <StackPanel Orientation="Horizontal"
-                    Grid.Row="2">
-            <Button x:Name="BFirstPage"
-                    Content="first"
-                    Click="BFirstPage_Click" />
-            <Button x:Name="BPreviousPage"
-                    Content="Previos"
-                    Click="BPreviousPage_Click" />
-            <TextBox x:Name="TBPage" Width="100"/>
-            <TextBlock x:Name="TBPagingText"/>
-            <Button x:Name="BNextPage"
-                    Content="Next"
-                    Click="BNextPage_Click" />
-            <Button x:Name="BLastPage"
-                    Content="Last"
-                    Click="BLastPage_Click" />
-            <TextBlock x:Name="TBTotalRecord" />
-        </StackPanel>
+        <Border Grid.Row="2">
+            <StackPanel Orientation="Horizontal"
+                        Margin="5">
+                <Button x:Name="BFirstPage"
+                        Content="|&#60;"
+                        Click="BFirstPage_Click"
+                        BorderThickness="0"
+                        Foreground="#6995c2"
+                        FontWeight="Bold"
+                        FontSize="20"
+                        Background="White" />
+                <Button x:Name="BPreviousPage"
+                        Content="&#60;"
+                        Click="BPreviousPage_Click"
+                        BorderThickness="0"
+                        Foreground="#6995c2"
+                        FontWeight="Bold"
+                        FontSize="20"
+                        Background="White" />
+                <TextBox x:Name="TBPage"
+                         TextChanged="TBPage_TextChanged"
+                         TextInput="TBPage_TextInput"
+                         Width="50" 
+                         MaxLength="3"
+                         VerticalContentAlignment="Center"
+                         HorizontalContentAlignment="Center"
+                         FontSize="16"
+                         Margin="10,0,10,0"/>
+                <TextBlock x:Name="TBPagingText"
+                           TextAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="16"
+                           Margin="0,0,10,0"/>
+                <Button x:Name="BNextPage"
+                        Content="&#62;"
+                        Click="BNextPage_Click"
+                        BorderThickness="0"
+                        Foreground="#6995c2"
+                        FontWeight="Bold"
+                        FontSize="20"
+                        Background="White" />
+                <Button x:Name="BLastPage"
+                        Content="&#62;|"
+                        Click="BLastPage_Click"
+                        BorderThickness="0"
+                        Foreground="#6995c2"
+                        FontWeight="Bold"
+                        FontSize="20"
+                        Background="White"
+                        Margin="0,0,10,0" />
+                <TextBlock x:Name="TBTotalRecord" 
+                           TextAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontSize="16"/>
+            </StackPanel>
+        </Border>
     </Grid>
 </Page>

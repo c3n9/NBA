@@ -4,6 +4,14 @@
              xmlns:local="clr-namespace:NBA_2hour"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="Button"
+               x:Key="RoundButton">
+            <Style.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius"
+                            Value="10" />
+                </Style>
+            </Style.Resources>
+        </Style>
     </Application.Resources>
 </Application>

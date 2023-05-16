@@ -11,11 +11,21 @@
 
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
             <RowDefinition />
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
+        <TextBlock Text="When you like a photo, you can right-click a photo and choose the download menu item in the context menu to download."
+                   FontSize="20"
+                   Margin="10,10,0,10"
+                   Foreground="gray"
+                   FontFamily="Verdana"
+                   HorizontalAlignment="Center"
+                   TextWrapping="Wrap"
+                   x:Name="TBWelcome"
+                   TextAlignment="Center" />
         <StackPanel Orientation="Horizontal"
-                    Grid.Row="1"
+                    Grid.Row="2"
                     HorizontalAlignment="Right"
                     Margin="0,0,10,0">
             <Button x:Name="BPrevious"
@@ -59,7 +69,24 @@
         </StackPanel>
         <ListView x:Name="LVPhotos"
                   d:ItemsSource="{d:SampleData ItemCount=12}"
+                  Grid.Row="1"
                   ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Click="MenuItem_Click">
+                        <MenuItem.Header>
+                            <TextBlock Text="Download" 
+                                       FontSize="14"
+                                       FontFamily="Verdana"/>
+                        </MenuItem.Header>
+                        <MenuItem.Icon>
+                            <Image Source="/Resources/download.png"
+                                   RenderOptions.BitmapScalingMode="Fant"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                </ContextMenu>
+            </ListView.ContextMenu>
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Image Source="{Binding Img}" 

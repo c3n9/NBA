@@ -49,8 +49,8 @@
                     Width="30"
                     Background="White"
                     BorderThickness="0"
-                    FontFamily="Verdana"
-                    FontSize="20"
+                    FontFamily="Segoe UI"
+                    FontSize="40"
                     Foreground="Gray"/>
 
             <Button x:Name="BNext"
@@ -59,8 +59,8 @@
                     DockPanel.Dock="Right"
                     Background="White"
                     BorderThickness="0"
-                    FontFamily="Verdana"
-                    FontSize="20"
+                    FontFamily="Segoe UI"
+                    FontSize="40"
                     Height="250"
                     Width="30"
                     Foreground="Gray"/>

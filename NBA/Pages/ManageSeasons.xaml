@@ -61,7 +61,9 @@
                         Foreground="Black"
                         FontFamily="Verdana"
                         FontSize="16"
-                        BorderBrush="Black" />
+                        Width="75"
+                        BorderBrush="Black"
+                        Style="{DynamicResource  RoundButton}" />
             </StackPanel>
         </StackPanel>
         <DataGrid x:Name="DGSeasonMatch"

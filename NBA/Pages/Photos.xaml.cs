@@ -87,5 +87,22 @@ namespace NBA_2hour.Pages
                 }
             }
         }
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedPicture = LVPhotos.SelectedItem as Pictures;
+            if (selectedPicture == null)
+            {
+                MessageBox.Show("Select an image to upload");
+                return;
+            }
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.Filter = ".png, .jpg, .jpeg | *.png, *.jpg, *.jpeg";
+            if (saveFileDialog.ShowDialog().GetValueOrDefault())
+            {
+                var file = File.Create(saveFileDialog.FileName);
+                file.Close();
+                File.WriteAllBytes(saveFileDialog.FileName, selectedPicture.Img);
+            }
+        }
     }
 }

@@ -33,7 +33,7 @@
             <TextBox x:Name="TBJobnumber" 
                      Width="210"
                      Text="NBA001"
-                     FontSize="20"
+                     FontSize="16"
                      FontFamily="Verdana"/>
             <TextBlock Text="Password:"
                        FontSize="14"
@@ -41,8 +41,7 @@
                        FontFamily="Verdana" />
             <PasswordBox x:Name="TBPassword"
                      Width="210"
-                     Password=""
-                     FontSize="20"
+                     FontSize="16"
                      FontFamily="Verdana" />
             <StackPanel Orientation="Horizontal"
                         Margin="0,10,0,0">

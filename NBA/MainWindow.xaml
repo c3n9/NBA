@@ -21,13 +21,13 @@
                 <TextBlock Text="NBA Managment System"
                            FontSize="28"
                            x:Name="TBName"
-                           Margin="10,0,0,20"
+                           Margin="10,0,0,0"
                            Foreground="gray"
                            FontFamily="Verdana"
                            HorizontalAlignment="Center" />
                 <TextBlock Text="Welcome to use this NBA Management system, you can redirect to different pages according to your role by clicking the buttons bellow."
                            FontSize="20"
-                           Margin="10,0,0,0"
+                           Margin="10,20,0,0"
                            Foreground="gray"
                            FontFamily="Verdana"
                            HorizontalAlignment="Center" 
@@ -44,12 +44,12 @@
                         Background="#6995c2"
                         BorderThickness="0"
                         Width="75"
-                        Visibility="Collapsed"
                         Margin="0,0,10,0"
                         Height="30"
                         Foreground="white"
                         FontFamily="Verdana"
-                        Content="Logout" />
+                        Content="Logout"
+                        Style="{DynamicResource  RoundButton}"/>
                 <Button x:Name="BBack"
                         Click="BBack_Click"
                         VerticalAlignment="Center"
@@ -59,7 +59,8 @@
                         Height="30"
                         Foreground="white"
                         FontFamily="Verdana"
-                        Content="Back" />
+                        Content="Back"
+                        Style="{DynamicResource  RoundButton}" />
             </StackPanel>
             
         </Grid>

@@ -35,7 +35,7 @@ namespace NBA_2hour.Pages
 
         private void BSearch_Click(object sender, RoutedEventArgs e)
         {
-            if (DGMatchups.SelectedItem ==  null)
+            if (DGSeasonMatch.SelectedItem ==  null)
             {
                 MessageBox.Show("Select season and matcuptype");
                 return;

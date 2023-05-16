@@ -28,6 +28,7 @@ namespace NBA_2hour.Pages
             contextTeam = team;
             DataContext = contextTeam;
             DGPlayers.ItemsSource= App.DB.PlayerInTeam.Where(x=> x.TeamId == team.TeamId).ToList();
+            DGMatchup.ItemsSource = App.DB.Matchup.Where(x=> x.Team.TeamId == team.TeamId).ToList();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)

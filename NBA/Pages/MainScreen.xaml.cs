@@ -47,6 +47,7 @@ namespace NBA_2hour.Pages
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             App.MainWindowInstance.TBWelcome.Visibility = Visibility.Visible;
+            App.MainWindowInstance.BLogout.Visibility = Visibility.Collapsed;
             App.MainWindowInstance.TBName.Text = "NBA Managment System";
             Refresh();
         }
