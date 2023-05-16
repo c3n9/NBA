@@ -5,10 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NBA_2hour.AppWindows"
         mc:Ignorable="d"
-        Title="MessageWindow"
+        Icon="/Resources/warning.ico"
+        Title="Warning"
         Height="200"
-        Width="500"
-        ResizeMode="NoResize">
+        Width="550"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <StackPanel VerticalAlignment="Center"
                     HorizontalAlignment="Center">
@@ -23,6 +25,16 @@
                        FontFamily="Verdana"
                        Foreground="Gray" 
                        TextAlignment="Center"/>
+            <Button x:Name="BAgree"
+                    Content="OK"
+                    Click="BAgree_Click" 
+                    Style="{DynamicResource RoundButton}"
+                    Background="White"
+                    BorderBrush="Gray"
+                    BorderThickness="1"
+                    HorizontalAlignment="Center"
+                    Margin="10"
+                    Width="200"/>
         </StackPanel>
         
         

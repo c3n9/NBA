@@ -37,5 +37,10 @@ namespace NBA_2hour.Pages
         {
 
         }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            App.MainWindowInstance.TBName.Text = "Technical Administrator Menu";
+        }
     }
 }

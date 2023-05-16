@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:NBA_2hour.Pages"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="TechnicalAdministratorMenu">
+      Title="TechnicalAdministratorMenu"
+      Loaded="Page_Loaded">
 
     <Grid>
         <StackPanel Orientation="Horizontal"

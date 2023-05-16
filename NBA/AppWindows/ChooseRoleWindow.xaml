@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:NBA_2hour.AppWindows"
         mc:Ignorable="d"
         Title="ChooseRoleWindow" Height="200" Width="400"
+        WindowStartupLocation="CenterScreen"
         ResizeMode="NoResize">
     <Grid>
         <StackPanel VerticalAlignment="Center"

@@ -5,19 +5,24 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NBA_2hour"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="650" MinWidth="1100">
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow"
+        MinHeight="650"
+        MinWidth="1100">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto" />
             <RowDefinition />
-            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        <Grid Margin="10">
+        <Grid Margin="0">
             <Image Source="/Resources/logo.jpg"
-                       Height="120"
-                       HorizontalAlignment="Left" />
+                   Height="120"
+                   Margin="10"
+                   HorizontalAlignment="Left" />
             <StackPanel VerticalAlignment="Center"
-                        HorizontalAlignment="Center">
+                        HorizontalAlignment="Center"
+                        Margin="10">
                 <TextBlock Text="NBA Managment System"
                            FontSize="28"
                            x:Name="TBName"
@@ -30,14 +35,15 @@
                            Margin="10,20,0,0"
                            Foreground="gray"
                            FontFamily="Verdana"
-                           HorizontalAlignment="Center" 
+                           HorizontalAlignment="Center"
                            TextWrapping="Wrap"
                            Width="700"
                            x:Name="TBWelcome"
-                           TextAlignment="Center"/>
+                           TextAlignment="Center" />
             </StackPanel>
             <StackPanel Orientation="Horizontal"
-                        HorizontalAlignment="Right">
+                        HorizontalAlignment="Right"
+                        Margin="10">
                 <Button x:Name="BLogout"
                         Click="BLogout_Click"
                         VerticalAlignment="Center"
@@ -49,7 +55,7 @@
                         Foreground="white"
                         FontFamily="Verdana"
                         Content="Logout"
-                        Style="{DynamicResource  RoundButton}"/>
+                        Style="{DynamicResource  RoundButton}" />
                 <Button x:Name="BBack"
                         Click="BBack_Click"
                         VerticalAlignment="Center"
@@ -62,20 +68,23 @@
                         Content="Back"
                         Style="{DynamicResource  RoundButton}" />
             </StackPanel>
-            
+            <Border Background="#6995c2"
+                    VerticalAlignment="Bottom"
+                    Height="2"/>
         </Grid>
         <Frame x:Name="MainFrame"
-               NavigationUIVisibility="Hidden" 
-               Grid.Row="1"/>
+               NavigationUIVisibility="Hidden"
+               Grid.Row="1"
+               Margin="0,5,0,0" />
         <Border Grid.Row="2"
                 Background="#6995c2">
             <TextBlock Text="The current season is 2016-2017, and the NBA already has a history of 71 years"
                        HorizontalAlignment="Center"
                        Foreground="White"
-                       FontFamily="Verdana" 
+                       FontFamily="Verdana"
                        FontSize="16"
-                       Margin="10"/>
+                       Margin="10" />
         </Border>
-        
+
     </Grid>
 </Window>

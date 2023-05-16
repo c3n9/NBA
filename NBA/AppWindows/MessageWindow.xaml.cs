@@ -23,5 +23,10 @@ namespace NBA_2hour.AppWindows
         {
             InitializeComponent();
         }
+
+        private void BAgree_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = true;
+        }
     }
 }
