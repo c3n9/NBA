@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NBA_2hour.AppWindows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,9 @@ namespace NBA_2hour.Pages
         public ManageMatchup()
         {
             InitializeComponent();
+            CBSeason.ItemsSource = App.DB.Season.ToList();
+            CBSeason.SelectedIndex = 2;
+            Refresh();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -30,6 +34,50 @@ namespace NBA_2hour.Pages
             App.MainWindowInstance.TBWelcome.Visibility = Visibility.Collapsed;
             App.MainWindowInstance.TBName.Text = "Manage Matchup";
             App.MainWindowInstance.TBName.VerticalAlignment = VerticalAlignment.Center;
+        }
+
+        private void BUpdate_Click(object sender, RoutedEventArgs e)
+        {
+            System.Media.SystemSounds.Beep.Play();
+            new MessageWindow("Update Matchup").ShowDialog();
+        }
+
+        private void BDelete_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        private void Refresh()
+        {
+            var filtredPreseason = App.DB.Matchup.Where(m => m.MatchupType.MatchupTypeId == 0).ToList();
+            var filtredRegularSeason = App.DB.Matchup.Where(m => m.MatchupType.MatchupTypeId == 1).ToList();
+            if (CBSeason.SelectedItem != null)
+            {
+                filtredPreseason = filtredPreseason.Where(f => f.SeasonId == CBSeason.SelectedIndex + 1).ToList();
+                filtredRegularSeason = filtredRegularSeason.Where(f => f.SeasonId == CBSeason.SelectedIndex + 1).ToList();
+                if (CBUseDate.IsChecked.Value)
+                {
+                    if (DPDateMatchup.SelectedDate == null)
+                    {
+                        MessageBox.Show("Select date or unchecked check box");
+                        return;
+                    }
+                    filtredPreseason = filtredPreseason.Where(f => f.Starttime.Date == DPDateMatchup.SelectedDate.Value.Date).ToList();
+                    filtredRegularSeason = filtredRegularSeason.Where(f => f.Starttime == DPDateMatchup.SelectedDate).ToList();
+                }
+            }
+            filtredPreseason = filtredPreseason.OrderBy(x=> x.Starttime.TimeOfDay).ToList();
+            DGMatchupPreseason.ItemsSource = filtredPreseason;
+            DGMatchupRegularSeason.ItemsSource = filtredRegularSeason;
+        }
+        private void BSearch_Click(object sender, RoutedEventArgs e)
+        {
+            var selectedSeason = CBSeason.SelectedItem;
+            if (selectedSeason == null)
+            {
+                MessageBox.Show("Select season");
+                return;
+            }
+            Refresh();
         }
     }
 }

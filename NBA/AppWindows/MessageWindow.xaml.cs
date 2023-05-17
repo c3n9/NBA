@@ -19,9 +19,10 @@ namespace NBA_2hour.AppWindows
     /// </summary>
     public partial class MessageWindow : Window
     {
-        public MessageWindow()
+        public MessageWindow(String name)
         {
             InitializeComponent();
+            TBMessageName.Text = $"{name} - Future Add-on";
         }
 
         private void BAgree_Click(object sender, RoutedEventArgs e)

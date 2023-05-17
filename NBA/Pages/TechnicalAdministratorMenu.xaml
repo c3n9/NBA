@@ -15,7 +15,7 @@
                     HorizontalAlignment="Center">
             <StackPanel Margin="0,0,30,0">
                 <Button x:Name="BManageExecutions"
-                        Content="Manage Seasons"
+                        Content="Manage Executions"
                         Click="BManageExecutions_Click"
                         Background="#6995c2"
                         BorderThickness="0"

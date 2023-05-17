@@ -34,5 +34,18 @@ namespace NBA_2hour.Models
                 return result;
             }
         }
+
+        public string MatcupStatusBool
+        {
+            get
+            {
+                string result = string.Empty;
+                if (Status == 1)
+                    result = "Yes";
+                if (Status == -1)
+                    result = "No";
+                return result;
+            }
+        }
     }
 }

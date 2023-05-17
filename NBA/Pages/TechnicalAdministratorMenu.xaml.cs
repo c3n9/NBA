@@ -25,7 +25,7 @@ namespace NBA_2hour.Pages
         {
             InitializeComponent();
             App.MainWindowInstance.BBack.Visibility = Visibility.Visible;
-            new MessageWindow().ShowDialog();
+            
         }
 
         private void BTeamReport_Click(object sender, RoutedEventArgs e)
@@ -35,7 +35,7 @@ namespace NBA_2hour.Pages
 
         private void BManageExecutions_Click(object sender, RoutedEventArgs e)
         {
-
+            new MessageWindow("Manage Executions").ShowDialog();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
