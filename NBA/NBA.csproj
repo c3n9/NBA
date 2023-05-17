@@ -308,6 +308,8 @@
       <DependentUpon>ModelNBA.edmx</DependentUpon>
       <LastGenOutput>ModelNBA.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\icoLogo.ico" />
+    <Resource Include="Resources\basketballPlayer.ico" />
     <Resource Include="Resources\basketballArena.jpg" />
     <Resource Include="Resources\warning.ico" />
     <Resource Include="Resources\download.png" />

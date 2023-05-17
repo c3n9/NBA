@@ -22,7 +22,6 @@ namespace NBA_2hour.Pages
     /// </summary>
     public partial class PlayersMain : Page
     {
-        List<PlayerInTeam> filtred;
         int pagesCount;
         char currentLetter = ' ';
         int playersOnPage = 10;
@@ -85,7 +84,7 @@ namespace NBA_2hour.Pages
         }
         private void Refresh()
         {
-            filtred = App.DB.PlayerInTeam.ToList();
+            var filtred = App.DB.PlayerInTeam.ToList();
             var selectedTeam = CBTeam.SelectedItem as Team;
             var textSearch = TBSearch.Text.ToLower();
             if (CBTeam.SelectedIndex != 0 && selectedTeam != null)
@@ -154,7 +153,7 @@ namespace NBA_2hour.Pages
         {
             if (TBPage.Text == string.Empty)
                 return;
-            if (int.Parse(TBPage.Text) > filtred.Count)
+            if (int.Parse(TBPage.Text) > pagesCount)
                 return;
             currentPage = int.Parse(TBPage.Text);
             Refresh();

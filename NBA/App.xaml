@@ -6,6 +6,10 @@
     <Application.Resources>
         <Style TargetType="Button"
                x:Key="RoundButton">
+            <Setter Property="BorderThickness"
+                    Value="2" />
+            <Setter Property="RenderOptions.BitmapScalingMode"
+                    Value="Fant" />
             <Style.Resources>
                 <Style TargetType="Border">
                     <Setter Property="CornerRadius"

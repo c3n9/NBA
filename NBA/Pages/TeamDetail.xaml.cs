@@ -22,19 +22,15 @@ namespace NBA_2hour.Pages
     public partial class TeamDetail : Page
     {
         Team contextTeam;
-        public TeamDetail(Team team)
+        public TeamDetail(Team team, int selectedIndex)
         {
             InitializeComponent();
+            TCTeamDetail.SelectedIndex = selectedIndex;
             contextTeam = team;
             DataContext = contextTeam;
             CBSeason.ItemsSource = App.DB.Season.ToList();
-            DGPlayers.ItemsSource= App.DB.PlayerInTeam.Where(x=> x.TeamId == team.TeamId).ToList();
-            DGMatchup.ItemsSource = App.DB.Matchup.Where(x=> x.Team.TeamId == team.TeamId).ToList();
-            LVPLayersC.ItemsSource = contextTeam.PlayerInTeam.Where(p => p.Player.PositionId == 3 && p.SeasonId==3).ToList();
-            LVPLayersPF.ItemsSource = contextTeam.PlayerInTeam.Where(p => p.Player.PositionId == 2 && p.SeasonId == 3).ToList();
-            LVPLayersPG.ItemsSource = contextTeam.PlayerInTeam.Where(p => p.Player.PositionId == 5 && p.SeasonId == 3).ToList();
-            LVPLayersSF.ItemsSource = contextTeam.PlayerInTeam.Where(p => p.Player.PositionId == 1 && p.SeasonId == 3).ToList();
-            LVPLayersSG.ItemsSource = contextTeam.PlayerInTeam.Where(p => p.Player.PositionId == 4 && p.SeasonId == 3).ToList();
+            CBSeason.SelectedIndex = 2;
+            Refresh(3);
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -43,10 +39,20 @@ namespace NBA_2hour.Pages
             App.MainWindowInstance.TBName.Text = "Team Detail";
             App.MainWindowInstance.TBName.VerticalAlignment = VerticalAlignment.Center;
         }
-
+        private void Refresh(int seasonId)
+        {
+            DGPlayers.ItemsSource = contextTeam.PlayerInTeam.Where(x => x.SeasonId == seasonId).ToList();
+            DGMatchup.ItemsSource = contextTeam.Matchup.Where(x => x.SeasonId == seasonId).ToList();
+            LVPLayersSF.ItemsSource = contextTeam.PlayerInTeam.Where(p => p.Player.PositionId == 1 && p.SeasonId == seasonId).ToList();
+            LVPLayersPF.ItemsSource = contextTeam.PlayerInTeam.Where(p => p.Player.PositionId == 2 && p.SeasonId == seasonId).ToList();
+            LVPLayersC.ItemsSource = contextTeam.PlayerInTeam.Where(p => p.Player.PositionId == 3 && p.SeasonId == seasonId).ToList();
+            LVPLayersSG.ItemsSource = contextTeam.PlayerInTeam.Where(p => p.Player.PositionId == 4 && p.SeasonId == seasonId).ToList();
+            LVPLayersPG.ItemsSource = contextTeam.PlayerInTeam.Where(p => p.Player.PositionId == 5 && p.SeasonId == seasonId).ToList();
+        }
         private void BSearch_Click(object sender, RoutedEventArgs e)
         {
-
+            var season = CBSeason.SelectedItem as Season;
+            Refresh(season.SeasonId);
         }
     }
 }

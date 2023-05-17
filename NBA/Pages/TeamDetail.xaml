@@ -15,54 +15,35 @@
             <RowDefinition Height="auto" />
             <RowDefinition />
         </Grid.RowDefinitions>
-        <StackPanel Orientation="Horizontal"
-                    Background="Blue">
+        <StackPanel Orientation="Horizontal">
             <Image Source="{Binding Logo}"
                    Height="120" />
             <StackPanel Orientation="Horizontal"
                         VerticalAlignment="Center">
-                <TextBlock Text="{Binding TeamName}"
-                           Foreground="Gray"
+                <TextBlock Foreground="Gray"
                            FontFamily="Verdana"
-                           FontSize="20" />
-                <TextBlock Text=" | "
-                           Foreground="Gray"
-                           FontFamily="Verdana"
-                           FontSize="20" />
-                <TextBlock Text="{Binding Division.Name}"
-                           Foreground="Gray"
-                           FontFamily="Verdana"
-                           FontSize="20" />
+                           FontSize="26">
+                    <TextBlock.Text>
+                        <MultiBinding StringFormat=" {0} | {1} ">
+                            <Binding Path="TeamName" />
+                            <Binding Path="Division.Name" />
+                        </MultiBinding>
+                    </TextBlock.Text>
+                </TextBlock>
             </StackPanel>
         </StackPanel>
-        <StackPanel Orientation="Horizontal"
-                    Background="red"
-                    Grid.Row="1"
-                    Margin="5"
-                    VerticalAlignment="Top"
-                    HorizontalAlignment="Center">
-            <ComboBox x:Name="CBSeason"
-                      DisplayMemberPath="Name"
-                      Width="100"
-                      Margin="0,0,10,0" />
-            <Button x:Name="BSearch"
-                    Content="Search"
-                    Click="BSearch_Click"
-                    Width="75"
-                    FontSize="16"
-                    FontFamily="Verdana"
-                    Style="{DynamicResource RoundButton}" />
-        </StackPanel>
-        
         <TabControl Width="auto"
                     Grid.Row="1"
-                    Background="orange">
+                    x:Name="TCTeamDetail">
             <TabItem>
                 <TabItem.Header>
                     <TextBlock Text="Roster"
                                Foreground="Gray"
                                FontFamily="Verdana"
-                               FontSize="20" />
+                               FontSize="20"
+                               Width="130"
+                               Height="30"
+                               TextAlignment="Center" />
                 </TabItem.Header>
                 <TabItem.Content>
                     <DataGrid ColumnWidth="*"
@@ -93,7 +74,10 @@
                     <TextBlock Text="Matchup"
                                Foreground="Gray"
                                FontFamily="Verdana"
-                               FontSize="20" />
+                               FontSize="20" 
+                               Width="130"
+                               Height="30"
+                               TextAlignment="Center"/>
                 </TabItem.Header>
                 <TabItem.Content>
                     <DataGrid ColumnWidth="*"
@@ -124,7 +108,10 @@
                     <TextBlock Text="Lineup"
                                Foreground="Gray"
                                FontFamily="Verdana"
-                               FontSize="20" />
+                               FontSize="20"
+                               Width="130"
+                               Height="30"
+                               TextAlignment="Center" />
                 </TabItem.Header>
                 <TabItem.Content>
                     <Grid>
@@ -141,11 +128,12 @@
                                 <RowDefinition />
                                 <RowDefinition />
                             </Grid.RowDefinitions>
-                            
+
                             <Canvas Grid.Row="0"
                                     Grid.Column="0"
+                                    VerticalAlignment="Bottom"
                                     HorizontalAlignment="Right"
-                                    Margin="0,120,300,0">
+                                    Margin="0,0,350,250">
                                 <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                                           Canvas.Left="20"
                                           Canvas.Top="20"
@@ -183,10 +171,11 @@
                                 </Border>
                             </Canvas>
                             <Canvas Grid.Row="1"
-                                    HorizontalAlignment="Right"
-                                    Margin="0,120,200,0">
+                                    VerticalAlignment="Bottom"
+                                    Margin="0,0,250,150"
+                                    HorizontalAlignment="Right">
                                 <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                                         Canvas.Left="20"
+                                          Canvas.Left="20"
                                           Canvas.Top="20"
                                           Width="220"
                                           x:Name="LVPLayersSG"
@@ -209,7 +198,6 @@
                                 <Border Background="#ffff96"
                                         VerticalAlignment="Top"
                                         BorderThickness="2"
-                                        
                                         BorderBrush="#bcbc6d"
                                         HorizontalAlignment="Left"
                                         Grid.Row="0"
@@ -264,8 +252,9 @@
                                 </Border>
                             </Canvas>
                             <Canvas Grid.Column="2"
+                                    VerticalAlignment="Bottom"
                                     HorizontalAlignment="Left"
-                                    Margin="300,120,0,0">
+                                    Margin="100,0,0,250">
                                 <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                                           Canvas.Left="20"
                                           Canvas.Top="20"
@@ -304,8 +293,9 @@
                             </Canvas>
                             <Canvas Grid.Row="1"
                                     Grid.Column="2"
+                                    VerticalAlignment="Bottom"
                                     HorizontalAlignment="Left"
-                                    Margin="0,120,200,0">
+                                    Margin="0,0,0,150">
                                 <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                                           Canvas.Left="20"
                                           Canvas.Top="20"
@@ -347,5 +337,27 @@
                 </TabItem.Content>
             </TabItem>
         </TabControl>
+        <StackPanel Orientation="Horizontal"
+                    Margin="5"
+                    Grid.Row="1"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Center">
+            <ComboBox x:Name="CBSeason"
+                      DisplayMemberPath="Name"
+                      Width="120"
+                      Margin="0,0,10,0"
+                      Foreground="Gray"
+                      FontFamily="Verdana"
+                      FontSize="16" />
+            <Button x:Name="BSearch"
+                    Content="Search"
+                    Grid.Row="1"
+                    Foreground="Gray"
+                    Click="BSearch_Click"
+                    Width="75"
+                    FontSize="16"
+                    FontFamily="Verdana"
+                    Style="{DynamicResource RoundButton}" />
+        </StackPanel>
     </Grid>
 </Page>

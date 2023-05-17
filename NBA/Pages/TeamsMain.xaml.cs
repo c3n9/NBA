@@ -40,25 +40,32 @@ namespace NBA_2hour.Pages
         }
         private void HLRoster_Click(object sender, RoutedEventArgs e)
         {
-            var team = (sender as Hyperlink).DataContext as Team;
-            if (team == null)
-            {
-                MessageBox.Show("Select team");
-                return;
-            }
-            NavigationService.Navigate(new TeamDetail(team));
+            int selectedIndex = 0;
+            TeamDeailNavigate(sender, selectedIndex);
         }
 
         private void HLMatchup_Click(object sender, RoutedEventArgs e)
         {
-
+            int selectedIndex = 1;
+            TeamDeailNavigate(sender, selectedIndex);
         }
 
         private void HLFirstLineup_Click(object sender, RoutedEventArgs e)
         {
-
+            int selectedIndex = 2;
+            TeamDeailNavigate(sender, selectedIndex);
         }
 
+        private void TeamDeailNavigate(object sender, int index)
+        {
+            var selectedTeam = (sender as Hyperlink).DataContext as Team;
+            if (selectedTeam == null)
+            {
+                MessageBox.Show("Select team");
+                return;
+            }
+            NavigationService.Navigate(new TeamDetail(selectedTeam, index));
+        }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             App.MainWindowInstance.TBWelcome.Visibility = Visibility.Collapsed;

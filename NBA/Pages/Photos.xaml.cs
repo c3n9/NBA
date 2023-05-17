@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -103,6 +104,37 @@ namespace NBA_2hour.Pages
                 file.Close();
                 File.WriteAllBytes(saveFileDialog.FileName, selectedPicture.Img);
             }
+        }
+
+        private void BFirstPage_Click(object sender, RoutedEventArgs e)
+        {
+            currentPage = 0;
+            Refresh();
+        }
+
+        private void BLastPage_Click(object sender, RoutedEventArgs e)
+        {
+            currentPage = pagesCount - 1;
+            Refresh();
+        }
+
+        private void TBPage_TextInput(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[0-9]");
+            if (!regex.IsMatch(e.Text))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void TBPage_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (TBPage.Text == string.Empty)
+                return;
+            if (int.Parse(TBPage.Text) > pagesCount - 1)
+                return;
+            currentPage = int.Parse(TBPage.Text);
+            Refresh();
         }
     }
 }
