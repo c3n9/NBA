@@ -11,7 +11,13 @@
       Loaded="Page_Loaded">
 
     <Grid>
-        <TabControl Margin="0,20,0,0">
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <TabControl Margin="0,20,0,0"
+                    x:Name="TCMatchup"
+                    SelectionChanged="TabControl_SelectionChanged">
             <TabItem>
                 <TabItem.Header>
                     <TextBlock Text="Preseason"
@@ -89,13 +95,13 @@
                               AutoGenerateColumns="False">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Date"
-                                                Binding="{Binding Starttime}" />
+                                                Binding="{Binding Starttime, StringFormat='yyyy/MM/dd'}" />
                             <DataGridTextColumn Header="Team(Away)"
                                                 Binding="{Binding Team.TeamName}" />
                             <DataGridTextColumn Header="Team(Home)"
                                                 Binding="{Binding Team1.TeamName}" />
                             <DataGridTextColumn Header="Time"
-                                                Binding="{Binding Starttime}" />
+                                                Binding="{Binding Starttime, StringFormat=t}" />
                             <DataGridTextColumn Header="Location"
                                                 Binding="{Binding Location}" />
                             <DataGridTextColumn Header="Finished"
@@ -136,7 +142,7 @@
             </TabItem>
         </TabControl>
         <StackPanel Orientation="Horizontal"
-                    Grid.Row="1"
+                    Grid.Row="0"
                     VerticalAlignment="Top"
                     HorizontalAlignment="Center"
                     Margin="50,20,0,0">
@@ -162,7 +168,15 @@
                     FontSize="16"
                     FontFamily="Verdana"
                     Style="{DynamicResource RoundButton}" />
-            
         </StackPanel>
+        <Button x:Name="BExportToExel" 
+                Content="Export to Exel"
+                Click="BExportToExel_Click"
+                Style="{DynamicResource RoundButton}"
+                Grid.Row="1"
+                HorizontalAlignment="Right"
+                Width="150"
+                Height="30"
+                Margin="10"/>
     </Grid>
 </Page>

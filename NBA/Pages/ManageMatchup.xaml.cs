@@ -66,6 +66,7 @@ namespace NBA_2hour.Pages
                 }
             }
             filtredPreseason = filtredPreseason.OrderBy(x=> x.Starttime.TimeOfDay).ToList();
+            filtredRegularSeason = filtredRegularSeason.OrderBy(x => x.Starttime.TimeOfDay).ToList();
             DGMatchupPreseason.ItemsSource = filtredPreseason;
             DGMatchupRegularSeason.ItemsSource = filtredRegularSeason;
         }
@@ -78,6 +79,23 @@ namespace NBA_2hour.Pages
                 return;
             }
             Refresh();
+        }
+
+        private void BExportToExel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if(TCMatchup.SelectedIndex == 0)
+            {
+                BExportToExel.Visibility = Visibility.Collapsed;
+            }
+            else
+            {
+                BExportToExel.Visibility = Visibility.Visible;
+            }
         }
     }
 }
