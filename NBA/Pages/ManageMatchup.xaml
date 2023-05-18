@@ -169,6 +169,15 @@
                     FontFamily="Verdana"
                     Style="{DynamicResource RoundButton}" />
         </StackPanel>
+        <Button x:Name="BAddNewMatchup"
+                Content="+Add a new matchup"
+                Click="BAddNewMatchup_Click"
+                Style="{DynamicResource RoundButton}"
+                Grid.Row="1"
+                HorizontalAlignment="Left"
+                Width="150"
+                Height="30"
+                Margin="10" />
         <Button x:Name="BExportToExel" 
                 Content="Export to Exel"
                 Click="BExportToExel_Click"

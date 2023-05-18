@@ -30,7 +30,7 @@ namespace NBA_2hour.Pages
 
         private void BTeamReport_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new TeamReport());
         }
 
         private void BManageExecutions_Click(object sender, RoutedEventArgs e)

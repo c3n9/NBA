@@ -385,3 +385,7 @@ C:\Users\C3n9\Desktop\Новая папка (2)\NBA\NBA\obj\Debug\NBA.csproj.Cor
 C:\Users\C3n9\Desktop\Новая папка (2)\NBA\NBA\obj\Debug\NBA.csproj.CopyComplete
 C:\Users\C3n9\Desktop\Новая папка (2)\NBA\NBA\obj\Debug\NBA-2hour.exe
 C:\Users\C3n9\Desktop\Новая папка (2)\NBA\NBA\obj\Debug\NBA-2hour.pdb
+C:\Users\C3n9\Desktop\Новая папка\NBA\NBA\obj\Debug\Pages\TeamReport.g.cs
+C:\Users\C3n9\Desktop\Новая папка\NBA\NBA\obj\Debug\Pages\TeamReport.baml
+C:\Users\C3n9\Desktop\Новая папка\NBA\NBA\obj\Debug\Pages\PlayerDetail.g.cs
+C:\Users\C3n9\Desktop\Новая папка\NBA\NBA\obj\Debug\Pages\PlayerDetail.baml

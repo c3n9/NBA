@@ -167,5 +167,16 @@ namespace NBA_2hour.Pages
                 e.Handled = true;
             }
         }
+
+        private void DGPlayers_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var selectedPleyer = DGPlayers.SelectedItem as PlayerInTeam;
+            if(selectedPleyer == null)
+            {
+                MessageBox.Show("Select player");
+                return;
+            }
+            NavigationService.Navigate(selectedPleyer);
+        }
     }
 }

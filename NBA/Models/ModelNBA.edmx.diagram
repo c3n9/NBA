@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4fe9e8eab40e44e9ac894372d37fb8d9" Name="Diagram1">
+      <Diagram DiagramId="4fe9e8eab40e44e9ac894372d37fb8d9" Name="Diagram1" ZoomLevel="77">
         <EntityTypeShape EntityType="NBAModel.ActionType" Width="1.5" PointX="8.25" PointY="16.75" />
         <EntityTypeShape EntityType="NBAModel.Admin" Width="1.5" PointX="13" PointY="2" />
         <EntityTypeShape EntityType="NBAModel.Conference" Width="1.5" PointX="0.75" PointY="12.25" />

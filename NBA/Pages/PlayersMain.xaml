@@ -77,7 +77,8 @@
                   AutoGenerateColumns="False"
                   x:Name="DGPlayers"
                   Grid.Row="1"
-                  IsReadOnly="True">
+                  IsReadOnly="True"
+                  MouseDoubleClick="DGPlayers_MouseDoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="No."
                                     Binding="{Binding ShirtNumber}" />

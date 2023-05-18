@@ -126,11 +126,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PlayerDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PlayersMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\TeamDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\TeamReport.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -249,11 +257,17 @@
     <Compile Include="Pages\Photos.xaml.cs">
       <DependentUpon>Photos.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PlayerDetail.xaml.cs">
+      <DependentUpon>PlayerDetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PlayersMain.xaml.cs">
       <DependentUpon>PlayersMain.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\TeamDetail.xaml.cs">
       <DependentUpon>TeamDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\TeamReport.xaml.cs">
+      <DependentUpon>TeamReport.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\TeamsMain.xaml.cs">
       <DependentUpon>TeamsMain.xaml</DependentUpon>

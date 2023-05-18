@@ -97,5 +97,10 @@ namespace NBA_2hour.Pages
                 BExportToExel.Visibility = Visibility.Visible;
             }
         }
+
+        private void BAddNewMatchup_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
