@@ -36,6 +36,11 @@ namespace NBA_2hour.Pages
 
             DataContext = playerInTeam;
             TBPPGinSeason.Text = playerInTeam.Player.PlayerStatistics.Where(s => s.Matchup.SeasonId == 3).Sum(s => s.Point).ToString();
+            TBAPGinSeason.Text = playerInTeam.Player.PlayerStatistics.Where(s => s.Matchup.SeasonId == 3).Sum(s => s.Assist).ToString();
+            TBRPGinSeason.Text = playerInTeam.Player.PlayerStatistics.Where(s => s.Matchup.SeasonId == 3).Sum(s => s.Rebound).ToString();
+            TBPPGinCareer.Text = playerInTeam.Player.PlayerStatistics.Sum(s => s.Point).ToString();
+            TBAPGinCareer.Text = playerInTeam.Player.PlayerStatistics.Sum(s => s.Assist).ToString();
+            TBRPGinCareer.Text = playerInTeam.Player.PlayerStatistics.Sum(s => s.Rebound).ToString();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)

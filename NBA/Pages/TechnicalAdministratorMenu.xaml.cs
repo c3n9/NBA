@@ -25,7 +25,7 @@ namespace NBA_2hour.Pages
         {
             InitializeComponent();
             App.MainWindowInstance.BBack.Visibility = Visibility.Visible;
-            
+            App.MainWindowInstance.BLogout.Visibility = Visibility.Visible;
         }
 
         private void BTeamReport_Click(object sender, RoutedEventArgs e)

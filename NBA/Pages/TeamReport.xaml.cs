@@ -25,6 +25,7 @@ namespace NBA_2hour.Pages
         {
             InitializeComponent();
             CBRank.SelectedIndex = 0;
+            App.MainWindowInstance.BLogout.Visibility = Visibility.Visible;
             Refresh();
         }
 
