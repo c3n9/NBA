@@ -170,13 +170,13 @@ namespace NBA_2hour.Pages
 
         private void DGPlayers_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            var selectedPleyer = DGPlayers.SelectedItem as PlayerInTeam;
-            if(selectedPleyer == null)
+            var selectedPlayer = DGPlayers.SelectedItem as PlayerInTeam;
+            if(selectedPlayer == null)
             {
                 MessageBox.Show("Select player");
                 return;
             }
-            NavigationService.Navigate(selectedPleyer);
+            NavigationService.Navigate(new PlayerDetail(selectedPlayer));
         }
     }
 }

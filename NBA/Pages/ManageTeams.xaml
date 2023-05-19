@@ -10,6 +10,78 @@
       Loaded="Page_Loaded">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    Margin="10">
+            <TextBlock Text="Conference:"
+                       Foreground="Gray"
+                       VerticalAlignment="Center"
+                       FontFamily="Verdana"
+                       FontSize="16" />
+            <ComboBox x:Name="CBConference"
+                      DisplayMemberPath="Name"
+                      Width="150"
+                      Foreground="Gray"
+                      FontFamily="Verdana"
+                      FontSize="16"
+                      Margin="10,0,10,0"
+                      SelectionChanged="CBConference_SelectionChanged"/>
+            <TextBlock Text="Division:"
+                       VerticalAlignment="Center"
+                       Foreground="Gray"
+                       FontFamily="Verdana"
+                       FontSize="16" />
+            <ComboBox x:Name="CBDivision"
+                      DisplayMemberPath="Name"
+                      Width="150"
+                      Margin="10,0,10,0"
+                      Foreground="Gray"
+                      FontFamily="Verdana"
+                      FontSize="16"
+                      SelectionChanged="CBDivision_SelectionChanged"/>
+            <TextBlock Text="Name:"
+                       Foreground="Gray"
+                       FontFamily="Verdana"
+                       VerticalAlignment="Center"
+                       FontSize="16" />
+            <TextBox x:Name="TBSurch"
+                     Foreground="Gray"
+                     FontFamily="Verdana"
+                     Width="150"
+                     Margin="10,0,10,0"
+                     MaxLength="50"
+                     FontSize="16" 
+                     TextChanged="TextBox_TextChanged"/>
+        </StackPanel>
+        <DataGrid x:Name="DGTeams"
+                  Grid.Row="1"
+                  IsReadOnly="True"
+                  ColumnWidth="*"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Image Source="{Binding Logo}" 
+                                   Height="60"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="Name" 
+                                    Binding="{Binding TeamName}"/>
+                <DataGridTextColumn Header="Conference"
+                                    Binding="{Binding Division.Conference.Name}"/>
+                <DataGridTextColumn Header="Division"
+                                    Binding="{Binding Division.Name}"/>
+                <DataGridTextColumn Header="Coach"
+                                    Binding="{Binding Coach}"/>
+                <DataGridTextColumn Header="TotalSalary($ Million"
+                                    Binding="{Binding TotalSalaryTeam}"/>
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

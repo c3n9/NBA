@@ -15,5 +15,6 @@ namespace NBA_2hour.Models
                 return JoinYear.Year-DateOfBirth.Year;
             }
         }
+        
     }
 }

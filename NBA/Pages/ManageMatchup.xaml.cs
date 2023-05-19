@@ -21,6 +21,8 @@ namespace NBA_2hour.Pages
     /// </summary>
     public partial class ManageMatchup : Page
     {
+        private Microsoft.Office.Interop.Excel.Application _excel;
+        private Microsoft.Office.Interop.Excel.Worksheet _sheet;
         public ManageMatchup()
         {
             InitializeComponent();
@@ -31,9 +33,7 @@ namespace NBA_2hour.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            App.MainWindowInstance.TBWelcome.Visibility = Visibility.Collapsed;
-            App.MainWindowInstance.TBName.Text = "Manage Matchup";
-            App.MainWindowInstance.TBName.VerticalAlignment = VerticalAlignment.Center;
+            Refresh();
         }
 
         private void BUpdate_Click(object sender, RoutedEventArgs e)
@@ -41,13 +41,11 @@ namespace NBA_2hour.Pages
             System.Media.SystemSounds.Beep.Play();
             new MessageWindow("Update Matchup").ShowDialog();
         }
-
-        private void BDelete_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
         private void Refresh()
         {
+            App.MainWindowInstance.TBWelcome.Visibility = Visibility.Collapsed;
+            App.MainWindowInstance.TBName.Text = "Manage Matchup";
+            App.MainWindowInstance.TBName.VerticalAlignment = VerticalAlignment.Center;
             var filtredPreseason = App.DB.Matchup.Where(m => m.MatchupType.MatchupTypeId == 0).ToList();
             var filtredRegularSeason = App.DB.Matchup.Where(m => m.MatchupType.MatchupTypeId == 1).ToList();
             if (CBSeason.SelectedItem != null)
@@ -62,7 +60,7 @@ namespace NBA_2hour.Pages
                         return;
                     }
                     filtredPreseason = filtredPreseason.Where(f => f.Starttime.Date == DPDateMatchup.SelectedDate.Value.Date).ToList();
-                    filtredRegularSeason = filtredRegularSeason.Where(f => f.Starttime == DPDateMatchup.SelectedDate).ToList();
+                    filtredRegularSeason = filtredRegularSeason.Where(f => f.Starttime.Date == DPDateMatchup.SelectedDate.Value.Date).ToList();
                 }
             }
             filtredPreseason = filtredPreseason.OrderBy(x=> x.Starttime.TimeOfDay).ToList();
@@ -83,7 +81,16 @@ namespace NBA_2hour.Pages
 
         private void BExportToExel_Click(object sender, RoutedEventArgs e)
         {
-
+            //создаем COM-объект Excel
+            _excel = new Microsoft.Office.Interop.Excel.Application();
+            //количество листов в книге
+            _excel.SheetsInNewWorkbook = 1;
+            //добавляем книгу
+            _excel.Workbooks.Add(Type.Missing);
+            //получам ссылку на первую открытую книгу
+            Microsoft.Office.Interop.Excel.Workbook workbook = _excel.Workbooks[1];
+            //получаем ссылку на первый лист   
+            _sheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Worksheets.get_Item(1);
         }
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -100,7 +107,8 @@ namespace NBA_2hour.Pages
 
         private void BAddNewMatchup_Click(object sender, RoutedEventArgs e)
         {
-
+            
+            NavigationService.Navigate(new AddANewMatchupForregularSeason(TCMatchup.SelectedIndex));
         }
     }
 }

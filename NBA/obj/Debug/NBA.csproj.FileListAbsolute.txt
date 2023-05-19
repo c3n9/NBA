@@ -389,3 +389,6 @@ C:\Users\C3n9\Desktop\Новая папка\NBA\NBA\obj\Debug\Pages\TeamReport.g
 C:\Users\C3n9\Desktop\Новая папка\NBA\NBA\obj\Debug\Pages\TeamReport.baml
 C:\Users\C3n9\Desktop\Новая папка\NBA\NBA\obj\Debug\Pages\PlayerDetail.g.cs
 C:\Users\C3n9\Desktop\Новая папка\NBA\NBA\obj\Debug\Pages\PlayerDetail.baml
+C:\Users\C3n9\Desktop\Новая папка\NBA\NBA\bin\Debug\ru\EntityFramework.SqlServer.resources.dll
+C:\Users\C3n9\Desktop\Новая папка\NBA\NBA\obj\Debug\Pages\AddANewMatchupForregularSeason.g.cs
+C:\Users\C3n9\Desktop\Новая папка\NBA\NBA\obj\Debug\Pages\AddANewMatchupForregularSeason.baml

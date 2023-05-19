@@ -10,6 +10,77 @@
       Loaded="Page_Loaded">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Center"
+                    Margin="10">
+            <TextBlock Text="Name:"
+                       Foreground="Gray"
+                       FontFamily="Verdana"
+                       VerticalAlignment="Center"
+                       FontSize="16" />
+            <TextBox x:Name="TBSurch"
+                     Foreground="Gray"
+                     FontFamily="Verdana"
+                     Width="150"
+                     Margin="10,0,10,0"
+                     MaxLength="50"
+                     FontSize="16"
+                     TextChanged="TBSurch_TextChanged" />
+            <TextBlock Text="Position:"
+                       Foreground="Gray"
+                       VerticalAlignment="Center"
+                       FontFamily="Verdana"
+                       FontSize="16" />
+            <ComboBox x:Name="CBPosition"
+                      DisplayMemberPath="Name"
+                      Width="150"
+                      Foreground="Gray"
+                      FontFamily="Verdana"
+                      FontSize="16"
+                      SelectionChanged="CBPosition_SelectionChanged"
+                      Margin="10,0,10,0"/>
+            <TextBlock Text="Country:"
+                       VerticalAlignment="Center"
+                       Foreground="Gray"
+                       FontFamily="Verdana"
+                       FontSize="16" />
+            <ComboBox x:Name="CBCountry"
+                      DisplayMemberPath="CountryName"
+                      SelectionChanged="CBCountry_SelectionChanged"
+                      Width="150"
+                      Margin="10,0,10,0"
+                      Foreground="Gray"
+                      FontFamily="Verdana"
+                      FontSize="16" />
+            
+        </StackPanel>
+        <DataGrid x:Name="DGPlayers"
+                  Grid.Row="1"
+                  IsReadOnly="True"
+                  ColumnWidth="*"
+                  AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Name"
+                                    Binding="{Binding Name}" />
+                <DataGridTextColumn Header="Position"
+                                    Binding="{Binding Position.Name}" />
+                <DataGridTextColumn Header="JoinYear"
+                                    Binding="{Binding JoinYear, StringFormat=d}" />
+                <DataGridTextColumn Header="Height"
+                                    Binding="{Binding Height}" />
+                <DataGridTextColumn Header="Weight"
+                                    Binding="{Binding Weight}" />
+                <DataGridTextColumn Header="DateOfBirth"
+                                    Binding="{Binding DateOfBirth, StringFormat=d}" />
+                <DataGridTextColumn Header="College"
+                                    Binding="{Binding College}" />
+                <DataGridTextColumn Header="Country"
+                                    Binding="{Binding Country.CountryName}" />
+            </DataGrid.Columns>
+        </DataGrid>
     </Grid>
 </Page>

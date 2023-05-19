@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NBA_2hour.AppWindows;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +29,8 @@ namespace NBA_2hour.Pages
 
         private void BView_Click(object sender, RoutedEventArgs e)
         {
-
+            System.Media.SystemSounds.Beep.Play();
+            new MessageWindow("Matchup Detail").ShowDialog();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)

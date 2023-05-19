@@ -53,22 +53,7 @@
                                     <DataTemplate>
                                         <Button x:Name="BUpdate"
                                                 Content="Update"
-                                                Click="BUpdate_Click" 
-                                                Style="{DynamicResource RoundButton}"
-                                                FontFamily="Verdana"
-                                                Margin="5"/>
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTemplateColumn>
-                                <DataGridTemplateColumn.Header>
-                                    <TextBlock Text="Delete" />
-                                </DataGridTemplateColumn.Header>
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button x:Name="BDelete"
-                                                Content="Delete"
-                                                Click="BDelete_Click"
+                                                Click="BUpdate_Click"
                                                 Style="{DynamicResource RoundButton}"
                                                 FontFamily="Verdana"
                                                 Margin="5" />
@@ -115,21 +100,6 @@
                                         <Button x:Name="BUpdate"
                                                 Content="Update"
                                                 Click="BUpdate_Click"
-                                                Style="{DynamicResource RoundButton}"
-                                                FontFamily="Verdana"
-                                                Margin="5" />
-                                    </DataTemplate>
-                                </DataGridTemplateColumn.CellTemplate>
-                            </DataGridTemplateColumn>
-                            <DataGridTemplateColumn>
-                                <DataGridTemplateColumn.Header>
-                                    <TextBlock Text="Delete" />
-                                </DataGridTemplateColumn.Header>
-                                <DataGridTemplateColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <Button x:Name="BDelete"
-                                                Content="Delete"
-                                                Click="BDelete_Click"
                                                 Style="{DynamicResource RoundButton}"
                                                 FontFamily="Verdana"
                                                 Margin="5" />
