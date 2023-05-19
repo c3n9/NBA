@@ -8,6 +8,27 @@ namespace NBA_2hour.Models
 {
     public partial class PlayerStatistics
     {
+        public double PPGinCareer
+        {
+            get
+            {
+                return 0;
+            }
+        }
+        public double APGinCareer
+        {
+            get
+            {                
+                return 0;
+            }
+        }
+        public double RPGinCareer
+        {
+            get
+            {
+                return 0;
+            }
+        }
         public double PPGinSeason
         {
             get

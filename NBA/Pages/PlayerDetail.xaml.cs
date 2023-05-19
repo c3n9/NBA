@@ -35,7 +35,7 @@ namespace NBA_2hour.Pages
             contextPlayerInTeam = playerInTeam;
 
             DataContext = playerInTeam;
-            DGSeason.ItemsSource = playerInTeam.Player.PlayerStatistics.Where(c => c.PlayerId == playerInTeam.PlayerId).ToList();
+            TBPPGinSeason.Text = playerInTeam.Player.PlayerStatistics.Where(s => s.Matchup.SeasonId == 3).Sum(s => s.Point).ToString();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)

@@ -126,22 +126,6 @@
                            FontFamily="Verdana"
                            HorizontalAlignment="Left"
                            Margin="10" />
-                <DataGrid AutoGenerateColumns="False"
-                          ColumnWidth="*"
-                          FontFamily="Verdana"
-                          Grid.Row="1"
-                          IsReadOnly="True"
-                          x:Name="DGSeason"
-                          CanUserAddRows="False">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="PPG"
-                                            Binding="{Binding PPGinSeason}" />
-                        <DataGridTextColumn Header="APG"
-                                            Binding="{Binding APGinSeason}" />
-                        <DataGridTextColumn Header="RPG"
-                                            Binding="{Binding RPGinSeason}" />
-                    </DataGrid.Columns>
-                </DataGrid>
                 <TextBlock Text="Career"
                            FontSize="16"
                            Grid.Row="2"
@@ -149,21 +133,56 @@
                            FontFamily="Verdana"
                            HorizontalAlignment="Left"
                            Margin="10" />
-                <DataGrid AutoGenerateColumns="False"
-                          ColumnWidth="*"
-                          Grid.Row="3"
-                          IsReadOnly="True"
-                          CanUserAddRows="False"
-                          x:Name="DGCareer">
-                    <DataGrid.Columns>
-                        <DataGridTextColumn Header="PPG"
-                                            Binding="{Binding }" />
-                        <DataGridTextColumn Header="APG"
-                                            Binding="{Binding }" />
-                        <DataGridTextColumn Header="RPG"
-                                            Binding="{Binding }" />
-                    </DataGrid.Columns>
-                </DataGrid>
+                <StackPanel Grid.Row="1">
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="PPG:"
+                                   FontSize="16"
+                                   Grid.Row="2"
+                                   Foreground="#474747"
+                                   FontFamily="Verdana"
+                                   HorizontalAlignment="Left"
+                                   Margin="10" />
+                        <TextBlock x:Name="TBPPGinSeason"
+                                   FontSize="16"
+                                   Grid.Row="2"
+                                   Foreground="#474747"
+                                   FontFamily="Verdana"
+                                   HorizontalAlignment="Left"
+                                   Margin="10" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="PPG:"
+                                   FontSize="16"
+                                   Grid.Row="2"
+                                   Foreground="#474747"
+                                   FontFamily="Verdana"
+                                   HorizontalAlignment="Left"
+                                   Margin="10" />
+                        <TextBlock x:Name="TBAPGinSeason"
+                                   FontSize="16"
+                                   Grid.Row="2"
+                                   Foreground="#474747"
+                                   FontFamily="Verdana"
+                                   HorizontalAlignment="Left"
+                                   Margin="10" />
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="RPG:"
+                                   FontSize="16"
+                                   Grid.Row="2"
+                                   Foreground="#474747"
+                                   FontFamily="Verdana"
+                                   HorizontalAlignment="Left"
+                                   Margin="10" />
+                        <TextBlock x:Name="TBRPGinSeason"
+                                   FontSize="16"
+                                   Grid.Row="2"
+                                   Foreground="#474747"
+                                   FontFamily="Verdana"
+                                   HorizontalAlignment="Left"
+                                   Margin="10" />
+                    </StackPanel>
+                </StackPanel>
             </Grid>
         </Grid>
         <Grid Grid.Row="1">
