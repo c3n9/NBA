@@ -8,25 +8,40 @@ namespace NBA_2hour.Models
 {
     public partial class PlayerStatistics
     {
-        public double PPG
+        public double PPGinSeason
         {
             get
             {
-                return 0;
+                double result = 0;
+                if(Matchup.SeasonId == 3)
+                {
+                    result += Point;
+                }
+                return result;
             }
         }
-        public double APG
+        public double APGinSeason
         {
             get
             {
-                return 0;
+                double result = 0;
+                if (Matchup.SeasonId == 3)
+                {
+                    result += Assist;
+                }
+                return result;
             }
         }
-        public double RPG
+        public double RPGinSeason
         {
             get
             {
-                return 0;
+                double result = 0;
+                if (Matchup.SeasonId == 3)
+                {
+                    result += Rebound;
+                }
+                return result;
             }
         }
     }

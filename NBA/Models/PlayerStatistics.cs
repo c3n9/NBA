@@ -36,6 +36,8 @@ namespace NBA_2hour.Models
         public int Turnover { get; set; }
         public int Foul { get; set; }
     
+        public virtual Matchup Matchup { get; set; }
+        public virtual Matchup Matchup1 { get; set; }
         public virtual Player Player { get; set; }
         public virtual Team Team { get; set; }
     }

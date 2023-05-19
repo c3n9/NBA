@@ -131,14 +131,15 @@
                           FontFamily="Verdana"
                           Grid.Row="1"
                           IsReadOnly="True"
+                          x:Name="DGSeason"
                           CanUserAddRows="False">
                     <DataGrid.Columns>
                         <DataGridTextColumn Header="PPG"
-                                            Binding="{Binding }" />
+                                            Binding="{Binding PPGinSeason}" />
                         <DataGridTextColumn Header="APG"
-                                            Binding="{Binding }" />
+                                            Binding="{Binding APGinSeason}" />
                         <DataGridTextColumn Header="RPG"
-                                            Binding="{Binding }" />
+                                            Binding="{Binding RPGinSeason}" />
                     </DataGrid.Columns>
                 </DataGrid>
                 <TextBlock Text="Career"
@@ -178,13 +179,15 @@
                            Foreground="Gray"
                            FontFamily="Verdana"
                            Margin="10" />
-                <DatePicker Height="30" />
+                <DatePicker Height="30"
+                            x:Name="DPStartDate" />
                 <TextBlock Text="-"
                            FontSize="16"
                            Foreground="Gray"
                            FontFamily="Verdana"
                            Margin="10" />
-                <DatePicker Height="30" />
+                <DatePicker Height="30"
+                            x:Name="DPEndDate" />
                 <Button x:Name="BSearch"
                         Content="Search"
                         Background="White"
@@ -193,75 +196,88 @@
                         FontSize="16"
                         Height="30"
                         Width="75"
+                        Click="BSearch_Click"
                         Margin="10,0,0,0"
                         BorderBrush="Black"
                         Style="{DynamicResource  RoundButton}" />
             </StackPanel>
-            <StackPanel Grid.Row="1">
-                <StackPanel Orientation="Horizontal"
-                        HorizontalAlignment="Center"
-                        Grid.Row="1">
-                <Button x:Name="BPoints"
-                        Click="BPoints_Click"
-                        VerticalAlignment="Center"
-                        Background="White"
-                        BorderThickness="0"
-                        Height="30"
-                        Foreground="Gray"
-                        FontFamily="Verdana"
-                        Content="POINTS"
-                        Width="110" />
-                <Button x:Name="BRebounds"
-                        Click="BRebounds_Click"
-                        VerticalAlignment="Center"
-                        Background="White"
-                        BorderThickness="0"
-                        Height="30"
-                        Foreground="Gray"
-                        Width="110"
-                        FontFamily="Verdana"
-                        Content="REBOUNDS" />
-                <Button x:Name="BAssists"
-                        Click="BAssists_Click"
-                        VerticalAlignment="Center"
-                        Background="White"
-                        BorderThickness="0"
-                        Height="30"
-                        Foreground="Gray"
-                        FontFamily="Verdana"
-                        Content="ASSISTS"
-                        Width="110" />
-                <Button x:Name="BSteals"
-                        Click="BSteals_Click"
-                        VerticalAlignment="Center"
-                        Background="White"
-                        BorderThickness="0"
-                        Height="30"
-                        Width="110"
-                        Foreground="Gray"
-                        FontFamily="Verdana"
-                        Content="STEALS" />
-                <Button x:Name="BBlocks"
-                        VerticalAlignment="Center"
-                        Background="White"
-                        Click="BBlocks_Click"
-                        BorderThickness="0"
-                        Height="30"
-                        Width="110"
-                        Foreground="Gray"
-                        FontFamily="Verdana"
-                        Content="BLOCKS" />
-            </StackPanel>
-                <TextBlock Text="The average of"
-                           FontSize="14"
-                           Margin="5"
-                           Foreground="Gray"
-                           FontFamily="Verdana" 
-                           HorizontalAlignment="Center"/>
-            </StackPanel>
-            <WindowsFormsHost Grid.Row="2">
-                <winForms:Chart x:Name="Chart"/>
-            </WindowsFormsHost>
+            <TabControl Grid.Row="2">
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock Text="Preseason"
+                                   Foreground="Gray"
+                                   FontFamily="Verdana"
+                                   FontSize="20"
+                                   Width="170"
+                                   TextAlignment="Center" />
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <WindowsFormsHost>
+                            <winForms:Chart x:Name="ChartPoints" />
+                        </WindowsFormsHost>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock Text="Rebounds"
+                                   Foreground="Gray"
+                                   FontFamily="Verdana"
+                                   FontSize="20"
+                                   Width="170"
+                                   TextAlignment="Center" />
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <WindowsFormsHost>
+                            <winForms:Chart x:Name="ChartRebounds" />
+                        </WindowsFormsHost>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock Text="Assists"
+                                   Foreground="Gray"
+                                   FontFamily="Verdana"
+                                   FontSize="20"
+                                   Width="170"
+                                   TextAlignment="Center" />
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <WindowsFormsHost>
+                            <winForms:Chart x:Name="ChartAssists" />
+                        </WindowsFormsHost>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock Text="Steals"
+                                   Foreground="Gray"
+                                   FontFamily="Verdana"
+                                   FontSize="20"
+                                   Width="170"
+                                   TextAlignment="Center" />
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <WindowsFormsHost>
+                            <winForms:Chart x:Name="ChartSteals" />
+                        </WindowsFormsHost>
+                    </TabItem.Content>
+                </TabItem>
+                <TabItem>
+                    <TabItem.Header>
+                        <TextBlock Text="Blocks"
+                                   Foreground="Gray"
+                                   FontFamily="Verdana"
+                                   FontSize="20"
+                                   Width="170"
+                                   TextAlignment="Center" />
+                    </TabItem.Header>
+                    <TabItem.Content>
+                        <WindowsFormsHost>
+                            <winForms:Chart x:Name="ChartBlocks" />
+                        </WindowsFormsHost>
+                    </TabItem.Content>
+                </TabItem>
+            </TabControl>
         </Grid>
     </Grid>
 </Page>

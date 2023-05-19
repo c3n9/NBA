@@ -22,11 +22,20 @@ namespace NBA_2hour.Pages
     /// </summary>
     public partial class PlayerDetail : Page
     {
+        PlayerInTeam contextPlayerInTeam;
         public PlayerDetail(PlayerInTeam playerInTeam)
         {
             InitializeComponent();
+            var areaPoints = ChartPoints.ChartAreas.Add("PointsArea");
+            var areaRebounds = ChartRebounds.ChartAreas.Add("ReboundsArea");
+            var areaAssists = ChartAssists.ChartAreas.Add("AssistsArea");
+            var areaSteals = ChartSteals.ChartAreas.Add("StealsArea");
+            var areaBlocks = ChartBlocks.ChartAreas.Add("BlocksArea");
+
+            contextPlayerInTeam = playerInTeam;
+
             DataContext = playerInTeam;
-            //DGCareer.ItemsSource = App.DB.PlayerStatistics.Where(c => c.PlayerId == playerInTeam.PlayerId && c.TeamId == playerInTeam.TeamId).ToList();
+            DGSeason.ItemsSource = playerInTeam.Player.PlayerStatistics.Where(c => c.PlayerId == playerInTeam.PlayerId).ToList();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -34,38 +43,55 @@ namespace NBA_2hour.Pages
             App.MainWindowInstance.TBWelcome.Visibility = Visibility.Collapsed;
             App.MainWindowInstance.TBName.Text = "Players Detail";
             App.MainWindowInstance.TBName.VerticalAlignment = VerticalAlignment.Center;
-            Chart.ChartAreas.Add(new ChartArea("Default"));
-            Chart.Series.Add(new Series("Series1"));
-            Chart.Series["Series1"].ChartArea = "Default";
-            Chart.Series["Series1"].ChartType = SeriesChartType.Line;
-            string[] axisXData = new string[] { "a", "b", "c" };
-            double[] axisYData = new double[] { 0.1, 1.5, 1.9 };
-            Chart.Series["Series1"].Points.DataBindXY(axisXData, axisYData);
+            
+        }
+        
+        private void Refresh()
+        {
+            ChartRebounds.Series.Clear();
+            ChartPoints.Series.Clear();
+            ChartAssists.Series.Clear();
+            ChartSteals.Series.Clear();
+            ChartBlocks.Series.Clear();
+            var startDate = DPStartDate.SelectedDate;
+            var endDate = DPEndDate.SelectedDate;
+
+            var stats = contextPlayerInTeam.Player.PlayerStatistics.Where(p => p.Matchup.Starttime.Date >= startDate.Value.Date && p.Matchup.Starttime.Date <= endDate.Value.Date).OrderBy(o => o.Matchup.Starttime);
+
+            var seriaPoint = ChartPoints.Series.Add("pointsLine");
+            seriaPoint.ChartType = SeriesChartType.Line;
+            seriaPoint.BorderWidth = 5;
+            var chartDataPoint = stats.GroupBy(x => x.Matchup.Starttime.Date).ToDictionary(Key => Key.Key, Value => Value.Sum(v => v.Point));
+            seriaPoint.Points.DataBindXY(chartDataPoint.Keys, chartDataPoint.Values);
+
+            var seriaRebound = ChartRebounds.Series.Add("reboundsLine");
+            seriaRebound.ChartType = SeriesChartType.Line;
+            seriaRebound.BorderWidth = 5;
+            var chartDataRebound = stats.GroupBy(x => x.Matchup.Starttime.Date).ToDictionary(Key => Key.Key, Value => Value.Sum(v => v.Rebound));
+            seriaRebound.Points.DataBindXY(chartDataRebound.Keys, chartDataRebound.Values);
+
+            var seriaAssist = ChartAssists.Series.Add("assistsLine");
+            seriaAssist.ChartType = SeriesChartType.Line;
+            seriaAssist.BorderWidth = 5;
+            var chartDataAssist = stats.GroupBy(x => x.Matchup.Starttime.Date).ToDictionary(Key => Key.Key, Value => Value.Sum(v => v.Assist));
+            seriaAssist.Points.DataBindXY(chartDataAssist.Keys, chartDataAssist.Values);
+
+            var seriaSteals = ChartSteals.Series.Add("stealsLine");
+            seriaSteals.ChartType = SeriesChartType.Line;
+            seriaSteals.BorderWidth = 5;
+            var chartDataSteal = stats.GroupBy(x => x.Matchup.Starttime.Date).ToDictionary(Key => Key.Key, Value => Value.Sum(v => v.Steal));
+            seriaSteals.Points.DataBindXY(chartDataSteal.Keys, chartDataSteal.Values);
+
+            var seriaBlock = ChartBlocks.Series.Add("blocksLine");
+            seriaBlock.ChartType = SeriesChartType.Line;
+            seriaBlock.BorderWidth = 5;
+            var chartDataBlock = stats.GroupBy(x => x.Matchup.Starttime.Date).ToDictionary(Key => Key.Key, Value => Value.Sum(v => v.Block));
+            seriaBlock.Points.DataBindXY(chartDataBlock.Keys, chartDataBlock.Values);
         }
 
-        private void BPoints_Click(object sender, RoutedEventArgs e)
+        private void BSearch_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void BRebounds_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BAssists_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BSteals_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void BBlocks_Click(object sender, RoutedEventArgs e)
-        {
-
+            Refresh();
         }
     }
 }

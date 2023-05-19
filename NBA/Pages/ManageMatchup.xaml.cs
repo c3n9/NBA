@@ -21,8 +21,6 @@ namespace NBA_2hour.Pages
     /// </summary>
     public partial class ManageMatchup : Page
     {
-        private Microsoft.Office.Interop.Excel.Application _excel;
-        private Microsoft.Office.Interop.Excel.Worksheet _sheet;
         public ManageMatchup()
         {
             InitializeComponent();
@@ -81,17 +79,11 @@ namespace NBA_2hour.Pages
 
         private void BExportToExel_Click(object sender, RoutedEventArgs e)
         {
-            //создаем COM-объект Excel
-            _excel = new Microsoft.Office.Interop.Excel.Application();
-            //количество листов в книге
-            _excel.SheetsInNewWorkbook = 1;
-            //добавляем книгу
-            _excel.Workbooks.Add(Type.Missing);
-            //получам ссылку на первую открытую книгу
-            Microsoft.Office.Interop.Excel.Workbook workbook = _excel.Workbooks[1];
-            //получаем ссылку на первый лист   
-            _sheet = (Microsoft.Office.Interop.Excel.Worksheet)workbook.Worksheets.get_Item(1);
+           
+            
         }
+
+        
 
         private void TabControl_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

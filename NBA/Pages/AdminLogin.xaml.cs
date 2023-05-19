@@ -42,11 +42,11 @@ namespace NBA_2hour.Pages
                 return;
             }
             App.loggedAdmin = user;
-            if (App.loggedAdmin.Role.RoleId == 1)
+            if (App.loggedAdmin.Role.RoleId == 1.ToString())
             {
                 NavigationService.Navigate(new EventAdministratorMenu());
             }
-            if(App.loggedAdmin.Role.RoleId == 2)
+            if(App.loggedAdmin.Role.RoleId == 2.ToString())
             {
                 NavigationService.Navigate(new TechnicalAdministratorMenu());
             }

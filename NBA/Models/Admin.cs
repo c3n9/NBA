@@ -21,7 +21,7 @@ namespace NBA_2hour.Models
         public System.DateTime DateOfBirth { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public int RoleId { get; set; }
+        public string RoleId { get; set; }
     
         public virtual Role Role { get; set; }
     }

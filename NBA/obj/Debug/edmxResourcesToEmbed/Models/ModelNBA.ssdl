@@ -18,7 +18,7 @@
     <Property Name="DateOfBirth" Type="date" Nullable="false" />
     <Property Name="Phone" Type="varchar" MaxLength="20" />
     <Property Name="Email" Type="varchar" MaxLength="50" />
-    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="char" MaxLength="1" Nullable="false" />
   </EntityType>
   <EntityType Name="Conference">
     <Key>
@@ -174,7 +174,7 @@
     <Key>
       <PropertyRef Name="RoleId" />
     </Key>
-    <Property Name="RoleId" Type="int" Nullable="false" />
+    <Property Name="RoleId" Type="char" MaxLength="1" Nullable="false" />
     <Property Name="RoleName" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="Season">
@@ -204,7 +204,7 @@
     <Property Name="Coach" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="Abbr" Type="char" MaxLength="3" Nullable="false" />
     <Property Name="Stadium" Type="varchar" MaxLength="100" />
-    <Property Name="Logo" Type="image" />
+    <Property Name="Logo" Type="image" Nullable="false" />
   </EntityType>
   <Association Name="FK_Admin_Role">
     <End Role="Role" Type="Self.Role" Multiplicity="1" />
@@ -266,6 +266,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_MatchupLog_Schedule">
+    <End Role="Matchup" Type="Self.Matchup" Multiplicity="1" />
+    <End Role="MatchupLog" Type="Self.MatchupLog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Matchup">
+        <PropertyRef Name="MatchupId" />
+      </Principal>
+      <Dependent Role="MatchupLog">
+        <PropertyRef Name="MatchupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_MatchupLog_Team">
     <End Role="Team" Type="Self.Team" Multiplicity="1" />
     <End Role="MatchupLog" Type="Self.MatchupLog" Multiplicity="*" />
@@ -278,6 +290,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_MatchupResult_Schedule">
+    <End Role="Matchup" Type="Self.Matchup" Multiplicity="1" />
+    <End Role="MatchupDetail" Type="Self.MatchupDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Matchup">
+        <PropertyRef Name="MatchupId" />
+      </Principal>
+      <Dependent Role="MatchupDetail">
+        <PropertyRef Name="MatchupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_MatchupStatistics_Player">
     <End Role="Player" Type="Self.Player" Multiplicity="1" />
     <End Role="PlayerStatistics" Type="Self.PlayerStatistics" Multiplicity="*" />
@@ -287,6 +311,18 @@
       </Principal>
       <Dependent Role="PlayerStatistics">
         <PropertyRef Name="PlayerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MatchupStatistics_Schedule">
+    <End Role="Matchup" Type="Self.Matchup" Multiplicity="1" />
+    <End Role="PlayerStatistics" Type="Self.PlayerStatistics" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Matchup">
+        <PropertyRef Name="MatchupId" />
+      </Principal>
+      <Dependent Role="PlayerStatistics">
+        <PropertyRef Name="MatchupId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -359,6 +395,18 @@
       </Principal>
       <Dependent Role="PlayerInTeam">
         <PropertyRef Name="TeamId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlayerStatistics_Matchup">
+    <End Role="Matchup" Type="Self.Matchup" Multiplicity="1" />
+    <End Role="PlayerStatistics" Type="Self.PlayerStatistics" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Matchup">
+        <PropertyRef Name="MatchupId" />
+      </Principal>
+      <Dependent Role="PlayerStatistics">
+        <PropertyRef Name="MatchupId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -474,12 +522,24 @@
       <End Role="Player" EntitySet="Player" />
       <End Role="MatchupLog" EntitySet="MatchupLog" />
     </AssociationSet>
+    <AssociationSet Name="FK_MatchupLog_Schedule" Association="Self.FK_MatchupLog_Schedule">
+      <End Role="Matchup" EntitySet="Matchup" />
+      <End Role="MatchupLog" EntitySet="MatchupLog" />
+    </AssociationSet>
     <AssociationSet Name="FK_MatchupLog_Team" Association="Self.FK_MatchupLog_Team">
       <End Role="Team" EntitySet="Team" />
       <End Role="MatchupLog" EntitySet="MatchupLog" />
     </AssociationSet>
+    <AssociationSet Name="FK_MatchupResult_Schedule" Association="Self.FK_MatchupResult_Schedule">
+      <End Role="Matchup" EntitySet="Matchup" />
+      <End Role="MatchupDetail" EntitySet="MatchupDetail" />
+    </AssociationSet>
     <AssociationSet Name="FK_MatchupStatistics_Player" Association="Self.FK_MatchupStatistics_Player">
       <End Role="Player" EntitySet="Player" />
+      <End Role="PlayerStatistics" EntitySet="PlayerStatistics" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MatchupStatistics_Schedule" Association="Self.FK_MatchupStatistics_Schedule">
+      <End Role="Matchup" EntitySet="Matchup" />
       <End Role="PlayerStatistics" EntitySet="PlayerStatistics" />
     </AssociationSet>
     <AssociationSet Name="FK_MatchupStatistics_Team" Association="Self.FK_MatchupStatistics_Team">
@@ -505,6 +565,10 @@
     <AssociationSet Name="FK_PlayerInTeam_Team" Association="Self.FK_PlayerInTeam_Team">
       <End Role="Team" EntitySet="Team" />
       <End Role="PlayerInTeam" EntitySet="PlayerInTeam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlayerStatistics_Matchup" Association="Self.FK_PlayerStatistics_Matchup">
+      <End Role="Matchup" EntitySet="Matchup" />
+      <End Role="PlayerStatistics" EntitySet="PlayerStatistics" />
     </AssociationSet>
     <AssociationSet Name="FK_Schedule_SeasonType" Association="Self.FK_Schedule_SeasonType">
       <End Role="MatchupType" EntitySet="MatchupType" />

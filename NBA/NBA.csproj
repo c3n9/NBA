@@ -329,16 +329,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Models\ModelNBA.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ModelNBA.Context.cs</LastGenOutput>
-      <DependentUpon>ModelNBA.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\ModelNBA.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>ModelNBA.edmx</DependentUpon>
-      <LastGenOutput>ModelNBA.cs</LastGenOutput>
-    </Content>
     <Resource Include="Resources\icoLogo.ico" />
     <Resource Include="Resources\basketballPlayer.ico" />
     <Resource Include="Resources\basketballArena.jpg" />
@@ -350,6 +340,17 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Models\ModelNBA.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelNBA.edmx</DependentUpon>
+      <LastGenOutput>ModelNBA.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelNBA.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelNBA.edmx</DependentUpon>
+      <LastGenOutput>ModelNBA.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

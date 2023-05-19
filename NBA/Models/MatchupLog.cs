@@ -24,6 +24,7 @@ namespace NBA_2hour.Models
         public string Remark { get; set; }
     
         public virtual ActionType ActionType { get; set; }
+        public virtual Matchup Matchup { get; set; }
         public virtual Player Player { get; set; }
         public virtual Team Team { get; set; }
     }
