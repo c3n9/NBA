@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\quart\OneDrive\Рабочий стол\Новая папка (2)\NBA\NBA\obj\Debug\
+C:\Users\Asus\source\repos\NBA\NBA\obj\Debug\
 NBA_2hour
 none
 false
 DEBUG;TRACE
-C:\Users\quart\OneDrive\Рабочий стол\Новая папка (2)\NBA\NBA\App.xaml
+C:\Users\Asus\source\repos\NBA\NBA\App.xaml
 201982061438
 21524082207
 50711489591
-23-1204591807
+231376029810
 AppWindows\ChooseRoleWindow.xaml;AppWindows\MessageWindow.xaml;MainWindow.xaml;Pages\AddANewMatchupForregularSeason.xaml;Pages\AdminLogin.xaml;Pages\EventAdministratorMenu.xaml;Pages\MainScreen.xaml;Pages\ManageMatchup.xaml;Pages\ManagePlayers.xaml;Pages\ManageSeasons.xaml;Pages\ManageTeams.xaml;Pages\MatchupList.xaml;Pages\Photos.xaml;Pages\PlayerDetail.xaml;Pages\PlayersMain.xaml;Pages\TeamDetail.xaml;Pages\TeamReport.xaml;Pages\TeamsMain.xaml;Pages\TechnicalAdministratorMenu.xaml;Pages\VisitorMain.xaml;
 
 False

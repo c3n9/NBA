@@ -25,6 +25,12 @@ namespace NBA_2hour.Pages
         public AdminLogin()
         {
             InitializeComponent();
+            if (Properties.Settings.Default.RememberMe)
+            {
+                TBJobnumber.Text = Properties.Settings.Default.Login;
+                TBPassword.Password = Properties.Settings.Default.Password;
+                CBRemember.IsChecked = Properties.Settings.Default.RememberMe;
+            }
             App.MainWindowInstance.BBack.Visibility = Visibility.Visible;
         }
 
@@ -42,6 +48,18 @@ namespace NBA_2hour.Pages
                 return;
             }
             App.loggedAdmin = user;
+            if (CBRemember.IsChecked.Value)
+            {
+                Properties.Settings.Default.RememberMe = true;
+                Properties.Settings.Default.Login = TBJobnumber.Text;
+                Properties.Settings.Default.Password = TBPassword.Password;
+            }
+            else
+            {
+                Properties.Settings.Default.RememberMe = false;
+                Properties.Settings.Default.Login = String.Empty;
+                Properties.Settings.Default.Password = String.Empty;
+            }
             if (App.loggedAdmin.Role.RoleId == 1.ToString())
             {
                 NavigationService.Navigate(new EventAdministratorMenu());
