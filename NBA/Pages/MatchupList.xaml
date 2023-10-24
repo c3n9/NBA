@@ -12,7 +12,10 @@
 
     <Grid>
         <ListView x:Name="LVMatchup"
-                  d:ItemsSource="{d:SampleData ItemCount=15}">
+                  d:ItemsSource="{d:SampleData ItemCount=15}"
+                  HorizontalAlignment="Center"
+                  BorderThickness="0"
+                  Width="1300">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>
